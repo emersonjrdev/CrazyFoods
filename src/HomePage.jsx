@@ -7,6 +7,7 @@ export default function HomePage() {
   const [activeCategory, setActiveCategory] = useState("burgers");
   const [isMobile, setIsMobile] = useState(false);
 
+  // Corrige o bug de scroll quando o menu está aberto
   useEffect(() => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 768);
@@ -15,8 +16,17 @@ export default function HomePage() {
     checkMobile();
     window.addEventListener('resize', checkMobile);
     
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
+    if (menuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+    
+    return () => {
+      window.removeEventListener('resize', checkMobile);
+      document.body.style.overflow = 'auto';
+    };
+  }, [menuOpen]);
 
   // PALETA DE CORES BASEADA NA SUA LOGO
   const brandColors = {
@@ -147,13 +157,11 @@ export default function HomePage() {
           ))}
         </nav>
         
-        {/* Menu Mobile Hamburguer */}
+        {/* Menu Mobile Hamburguer - Versão Corrigida */}
         <motion.button
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-          className="md:hidden p-2 rounded-lg relative z-50"
+          className="md:hidden p-2 rounded-lg relative z-[60]"
           style={{ 
-            backgroundColor: brandColors.glasses.primary,
+            backgroundColor: menuOpen ? 'transparent' : brandColors.glasses.primary,
             width: '44px',
             height: '44px',
             display: 'flex',
@@ -163,70 +171,88 @@ export default function HomePage() {
           }}
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Menu"
+          whileTap={{ scale: 0.9 }}
         >
-          <motion.div
-            animate={menuOpen ? "open" : "closed"}
-            variants={{
-              open: { rotate: 45, y: 5, width: '24px' },
-              closed: { rotate: 0, y: 0, width: '24px' }
-            }}
-            className="h-0.5 bg-white mb-1.5"
-            style={{ originX: 0.25 }}
+          <motion.span
+            className="block h-0.5 bg-white mb-1.5"
+            animate={menuOpen ? { rotate: 45, y: 6, width: '24px' } : { rotate: 0, y: 0, width: '24px' }}
+            transition={{ duration: 0.3 }}
           />
-          <motion.div
-            animate={menuOpen ? "open" : "closed"}
-            variants={{
-              open: { opacity: 0, width: 0 },
-              closed: { opacity: 1, width: '20px' }
-            }}
-            className="h-0.5 bg-white mb-1.5"
+          <motion.span
+            className="block h-0.5 bg-white mb-1.5"
+            animate={menuOpen ? { opacity: 0, width: 0 } : { opacity: 1, width: '20px' }}
+            transition={{ duration: 0.3 }}
           />
-          <motion.div
-            animate={menuOpen ? "open" : "closed"}
-            variants={{
-              open: { rotate: -45, y: -5, width: '24px' },
-              closed: { rotate: 0, y: 0, width: '24px' }
-            }}
-            className="h-0.5 bg-white"
-            style={{ originX: 0.25 }}
+          <motion.span
+            className="block h-0.5 bg-white"
+            animate={menuOpen ? { rotate: -45, y: -6, width: '24px' } : { rotate: 0, y: 0, width: '24px' }}
+            transition={{ duration: 0.3 }}
           />
         </motion.button>
+      </header>
 
-        <AnimatePresence>
-          {menuOpen && (
-            <motion.div
-              initial={{ opacity: 0, y: '-100%' }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: '-100%' }}
-              transition={{ type: 'spring', bounce: 0.15 }}
-              className="fixed inset-0 bg-black bg-opacity-95 backdrop-blur-md z-40 flex flex-col items-center justify-center space-y-6 pt-24 pb-10 px-4"
+      {/* Menu Mobile Expandido - Versão Corrigida */}
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            key="mobile-menu"
+            initial={{ opacity: 0, x: '100%' }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: '100%' }}
+            transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+            className="fixed inset-0 bg-black bg-opacity-95 z-50 flex flex-col items-center justify-center pt-20 pb-10 px-6"
+          >
+            <button 
+              onClick={() => setMenuOpen(false)}
+              className="absolute top-6 right-6 text-white text-3xl z-50 hover:text-yellow-400 transition-colors"
+              aria-label="Fechar menu"
             >
+              &times;
+            </button>
+            
+            <div className="flex flex-col items-center space-y-8 w-full">
               {['Cardápio', 'Sobre', 'Contato'].map((item, index) => (
                 <motion.a
                   key={item}
                   href={`#${item.toLowerCase()}`}
-                  className="text-2xl font-bold py-3 px-6 relative w-full text-center"
-                  style={{ color: brandColors.skin }}
+                  className="text-3xl font-bold text-white hover:text-yellow-400 transition-colors py-3 w-full text-center"
                   onClick={() => setMenuOpen(false)}
-                  initial={{ y: 30, opacity: 0 }}
+                  initial={{ y: 20, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
-                  transition={{ type: 'spring', bounce: 0.3, delay: 0.1 * index }}
-                  whileHover={{ color: brandColors.glasses.primary, scale: 1.05 }}
+                  transition={{ delay: 0.1 * index, duration: 0.5 }}
                 >
                   {item}
-                  <motion.div
-                    className="absolute bottom-2 left-1/2 transform -translate-x-1/2 w-1/2 h-0.5"
-                    style={{ backgroundColor: brandColors.lips.primary }}
-                    initial={{ scaleX: 0 }}
-                    whileInView={{ scaleX: 1 }}
-                    transition={{ duration: 0.5 }}
-                  />
+                </motion.a>
+              ))}
+            </div>
+
+            {/* Redes sociais */}
+            <motion.div 
+              className="mt-12 flex space-x-6"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.4 }}
+            >
+              {[
+                { icon: 'instagram', color: '#E1306C' },
+                { icon: 'facebook', color: '#1877F2' },
+                { icon: 'whatsapp', color: '#25D366' }
+              ].map((social) => (
+                <motion.a
+                  key={social.icon}
+                  href="#"
+                  className="w-12 h-12 rounded-full flex items-center justify-center text-white text-2xl"
+                  style={{ backgroundColor: social.color }}
+                  whileHover={{ y: -5, scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                >
+                  <i className={`fab fa-${social.icon}`}></i>
                 </motion.a>
               ))}
             </motion.div>
-          )}
-        </AnimatePresence>
-      </header>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Hero Section with Video/Image */}
       <section className="relative h-[90vh] md:h-screen flex items-center justify-center text-center px-4 overflow-hidden">
