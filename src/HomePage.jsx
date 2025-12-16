@@ -163,49 +163,111 @@ export default function HomePage() {
   return (
     <div className="min-h-screen text-gray-800 font-sans overflow-x-hidden" style={{ backgroundColor: brandColors.light }}>
       {/* Header */}
-      <header className="sticky top-0 z-50 py-3 px-4 md:px-6 flex justify-between items-center shadow-lg backdrop-blur-md" style={{ backgroundColor: `${brandColors.dark}E6` }}>
+      <header className="sticky top-0 z-50 py-4 px-4 md:px-8 flex justify-between items-center shadow-xl backdrop-blur-lg border-b border-white border-opacity-10" style={{ backgroundColor: `${brandColors.dark}F0` }}>
         <motion.div
           initial={{ x: -100, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.8, type: 'spring' }}
-          className="flex items-center"
+          className="flex items-center gap-3 md:gap-4"
         >
-          <div className="w-12 h-12 md:w-16 md:h-16 rounded-full overflow-hidden border-2 mr-3 shadow-lg" style={{ borderColor: brandColors.primary }}>
-            <img src="/jusato.jpg" alt="Jusato Confeitaria Logo" className="w-full h-full object-cover" />
-          </div>
+          <motion.div 
+            className="w-14 h-14 md:w-20 md:h-20 rounded-full overflow-hidden border-2 shadow-xl relative group"
+            style={{ borderColor: brandColors.primary }}
+            whileHover={{ scale: 1.05, rotate: 5 }}
+            transition={{ type: 'spring', stiffness: 300 }}
+          >
+            <div className="absolute inset-0 bg-gradient-to-br from-pink-300 to-rose-400 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+            <img src="/jusato.jpg" alt="Jusato Confeitaria Logo" className="w-full h-full object-cover relative z-10" />
+          </motion.div>
           
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }} className="text-2xl md:text-3xl font-extrabold">
-            <span style={{ color: brandColors.primary }}>JUSATO</span>
-            <span className="text-white"> CONFEITARIA</span>
+          <motion.div 
+            initial={{ opacity: 0, y: -10 }} 
+            animate={{ opacity: 1, y: 0 }} 
+            transition={{ delay: 0.3, duration: 0.6 }}
+            className="flex flex-col"
+          >
+            <div className="flex items-baseline gap-2">
+              <motion.span 
+                className="text-2xl md:text-4xl font-black tracking-tight"
+                style={{ 
+                  color: brandColors.primary,
+                  textShadow: `0 0 20px ${brandColors.primary}40`
+                }}
+                whileHover={{ scale: 1.05 }}
+              >
+                JUSATO
+              </motion.span>
+              <motion.span 
+                className="text-xl md:text-2xl font-bold text-white opacity-90"
+                style={{ letterSpacing: '0.05em' }}
+              >
+                CONFEITARIA
+              </motion.span>
+            </div>
+            <motion.p 
+              className="text-xs md:text-sm font-medium text-white opacity-70 mt-0.5 hidden sm:block"
+              style={{ letterSpacing: '0.1em' }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 0.7 }}
+              transition={{ delay: 0.6, duration: 0.6 }}
+            >
+              Doces Artesanais com Amor
+            </motion.p>
             <motion.div 
-              className="h-1 mt-1"
-              style={{ background: `linear-gradient(to right, ${brandColors.primary}, ${brandColors.secondary})` }}
+              className="h-0.5 mt-1 rounded-full"
+              style={{ 
+                background: `linear-gradient(90deg, ${brandColors.primary} 0%, ${brandColors.secondary} 100%)`,
+                boxShadow: `0 0 10px ${brandColors.primary}60`
+              }}
               initial={{ scaleX: 0 }}
               animate={{ scaleX: 1 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
+              transition={{ duration: 0.8, delay: 0.5, type: 'spring' }}
             />
           </motion.div>
         </motion.div>
         
         {/* Menu Desktop */}
-        <nav className="hidden md:flex space-x-8">
-          {['Cardápio', 'Sobre', 'Contato'].map((item) => (
+        <nav className="hidden md:flex items-center space-x-6 lg:space-x-8">
+          {['Cardápio', 'Sobre', 'Contato'].map((item, index) => (
             <motion.a
-              whileHover={{ scale: 1.1, color: brandColors.secondary }}
-              whileTap={{ scale: 0.95 }}
               key={item}
               href={`#${item.toLowerCase()}`}
-              className="text-white font-semibold transition-all relative"
+              className="text-white font-semibold text-sm lg:text-base transition-all relative group py-2"
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 + index * 0.1, duration: 0.5 }}
+              whileHover={{ y: -2 }}
+              whileTap={{ scale: 0.95 }}
             >
-              {item}
+              <span className="relative z-10">{item}</span>
               <motion.span
-                className="absolute bottom-0 left-0 w-full h-0.5"
+                className="absolute bottom-0 left-0 w-0 h-0.5 rounded-full"
+                style={{ backgroundColor: brandColors.secondary }}
+                whileHover={{ width: '100%' }}
+                transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+              />
+              <motion.div
+                className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-10"
                 style={{ backgroundColor: brandColors.primary }}
-                initial={false}
-                transition={{ type: 'spring', bounce: 0.25, duration: 0.5 }}
+                transition={{ duration: 0.3 }}
               />
             </motion.a>
           ))}
+          <motion.a
+            href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="ml-4 px-5 py-2 rounded-full font-semibold text-sm text-white flex items-center gap-2 shadow-lg"
+            style={{ backgroundColor: '#25D366' }}
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.7, duration: 0.5 }}
+            whileHover={{ scale: 1.05, boxShadow: '0 5px 20px rgba(37, 211, 102, 0.4)' }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <i className="fab fa-whatsapp text-lg"></i>
+            <span className="hidden lg:inline">Pedir Agora</span>
+          </motion.a>
         </nav>
         
         {/* Menu Mobile - Versão Corrigida */}
@@ -310,13 +372,23 @@ export default function HomePage() {
       {/* Hero Section with Video/Image */}
       <section className="relative h-[90vh] md:h-screen flex items-center justify-center text-center px-4 overflow-hidden">
         <div className="absolute inset-0">
-          <img 
-            src="/jusato.jpg" 
-            alt="Jusato Confeitaria Background"
+          <video 
+            autoPlay
+            loop
+            muted
+            playsInline
             className="absolute h-full w-full object-cover"
-            style={{ opacity: 0.5 }}
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-50"></div>
+            style={{ opacity: 0.6 }}
+          >
+            <source src="/video-background.mp4" type="video/mp4" />
+            {/* Fallback para navegadores que não suportam vídeo */}
+            <img 
+              src="/jusato.jpg" 
+              alt="Jusato Confeitaria Background"
+              className="absolute h-full w-full object-cover"
+            />
+          </video>
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60"></div>
         </div>
 
         <motion.div className="relative z-10 max-w-4xl px-4 text-white w-full">
