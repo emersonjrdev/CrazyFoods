@@ -51,24 +51,44 @@ export default function HomePage() {
     visible: { opacity: 1, y: 0 }
   };
 
+  const whatsappNumber = "5511987654321"; // Número de exemplo - substitua pelo número real
+  const whatsappMessage = "Olá! Gostaria de fazer um pedido na Jusato Confeitaria! 🍰";
+
   const menuCategories = {
     doces: [
-      { nome: "Brigadeiro Gourmet", preco: "R$3,50", desc: "Brigadeiro artesanal com chocolate belga e granulado especial", stars: 5 },
-      { nome: "Cupcake Personalizado", preco: "R$12,00", desc: "Cupcake com cobertura de buttercream e decoração artesanal", stars: 5 },
-      { nome: "Torta de Morango", preco: "R$45,00", desc: "Torta cremosa com morangos frescos e massa amanteigada", stars: 5 },
-      { nome: "Brownie com Nutella", preco: "R$8,50", desc: "Brownie fudgy com camada de Nutella e nozes", stars: 5 }
+      { nome: "Brigadeiro Gourmet", preco: "R$3,50", desc: "Brigadeiro artesanal com chocolate belga e granulado especial. Disponível em diversos sabores!", stars: 5, emoji: "🍫" },
+      { nome: "Cupcake Personalizado", preco: "R$12,00", desc: "Cupcake com cobertura de buttercream e decoração artesanal. Personalize como quiser!", stars: 5, emoji: "🧁" },
+      { nome: "Torta de Morango", preco: "R$45,00", desc: "Torta cremosa com morangos frescos e massa amanteigada. Perfeita para ocasiões especiais!", stars: 5, emoji: "🍓" },
+      { nome: "Brownie com Nutella", preco: "R$8,50", desc: "Brownie fudgy com camada de Nutella e nozes. Indulgência pura!", stars: 5, emoji: "🍰" },
+      { nome: "Trufas Artesanais", preco: "R$4,00", desc: "Trufas de chocolate belga com recheios surpresa. Caixa com 6 unidades disponível!", stars: 5, emoji: "🍪" },
+      { nome: "Macarons Coloridos", preco: "R$15,00", desc: "Macarons franceses com sabores únicos e cores vibrantes. Caixa com 6 unidades!", stars: 5, emoji: "🍬" }
     ],
     bolos: [
-      { nome: "Bolo de Chocolate", preco: "R$85,00", desc: "Bolo de chocolate belga com recheio de ganache e frutas", stars: 5 },
-      { nome: "Bolo Red Velvet", preco: "R$95,00", desc: "Bolo aveludado com cream cheese frosting e decoração elegante", stars: 5 },
-      { nome: "Bolo de Morango", preco: "R$75,00", desc: "Bolo branco com morangos frescos e creme de baunilha", stars: 5 }
+      { nome: "Bolo de Chocolate", preco: "R$85,00", desc: "Bolo de chocolate belga com recheio de ganache e frutas. Serve até 10 pessoas!", stars: 5, emoji: "🎂" },
+      { nome: "Bolo Red Velvet", preco: "R$95,00", desc: "Bolo aveludado com cream cheese frosting e decoração elegante. Sabor único!", stars: 5, emoji: "🍰" },
+      { nome: "Bolo de Morango", preco: "R$75,00", desc: "Bolo branco com morangos frescos e creme de baunilha. Clássico e delicioso!", stars: 5, emoji: "🍓" },
+      { nome: "Bolo Temático", preco: "A partir de R$120,00", desc: "Bolos personalizados para aniversários, casamentos e eventos. Consulte-nos!", stars: 5, emoji: "🎉" }
     ],
     sobremesas: [
-      { nome: "Petit Gateau", preco: "R$18,00", desc: "Bolinho quente de chocolate com sorvete de baunilha", stars: 5 },
-      { nome: "Cheesecake de Frutas Vermelhas", preco: "R$22,00", desc: "Cheesecake cremoso com calda de frutas vermelhas", stars: 5 },
-      { nome: "Tiramisu Artesanal", preco: "R$20,00", desc: "Tiramisu tradicional com café especial e cacau", stars: 5 }
+      { nome: "Petit Gateau", preco: "R$18,00", desc: "Bolinho quente de chocolate com sorvete de baunilha. Sofisticação em cada colher!", stars: 5, emoji: "🍮" },
+      { nome: "Cheesecake de Frutas Vermelhas", preco: "R$22,00", desc: "Cheesecake cremoso com calda de frutas vermelhas. Equilíbrio perfeito!", stars: 5, emoji: "🍒" },
+      { nome: "Tiramisu Artesanal", preco: "R$20,00", desc: "Tiramisu tradicional com café especial e cacau. Autêntico sabor italiano!", stars: 5, emoji: "☕" },
+      { nome: "Pavê de Chocolate", preco: "R$16,00", desc: "Pavê cremoso com camadas de chocolate e biscoito. Tradição brasileira!", stars: 5, emoji: "🍫" }
     ]
   };
+
+  const featuredItems = [
+    { nome: "Caixa Surpresa", preco: "R$45,00", desc: "Seleção especial de doces variados. Perfeito para presentear!", emoji: "🎁", stars: 5 },
+    { nome: "Kit Festa", preco: "R$120,00", desc: "Kit completo para festas: brigadeiros, cupcakes e docinhos. Serve 20 pessoas!", emoji: "🎊", stars: 5 },
+    { nome: "Bolo do Mês", preco: "R$65,00", desc: "Bolo especial com sabor exclusivo do mês. Surpreenda-se!", emoji: "🌟", stars: 5 }
+  ];
+
+  const testimonials = [
+    { nome: "Maria Silva", texto: "Os doces mais deliciosos que já provei! Cada mordida é uma experiência única.", rating: 5, avatar: "👩" },
+    { nome: "João Santos", texto: "A Jusato transformou o aniversário da minha filha em algo inesquecível. Recomendo!", rating: 5, avatar: "👨" },
+    { nome: "Ana Costa", texto: "Qualidade excepcional e atendimento impecável. Já sou cliente fiel!", rating: 5, avatar: "👩‍🦰" },
+    { nome: "Pedro Oliveira", texto: "Os bolos personalizados superaram todas as expectativas. Perfeito!", rating: 5, avatar: "👨‍🦱" }
+  ];
 
   const MenuItem = ({ item, delay }) => {
     const controls = useAnimation();
@@ -99,25 +119,43 @@ export default function HomePage() {
       >
         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-pink-100 to-transparent opacity-0 group-hover:opacity-20 -rotate-45 scale-150 group-hover:scale-100 transition-all duration-500"></div>
         
-        <h4 className="text-xl font-bold mb-2 text-gray-900 relative z-10">{item.nome}</h4>
+        <div className="flex items-center justify-between mb-2 relative z-10">
+          <h4 className="text-xl font-bold text-gray-900">{item.nome}</h4>
+          {item.emoji && <span className="text-2xl">{item.emoji}</span>}
+        </div>
         <p className="text-lg font-bold mb-3 relative z-10" style={{ color: brandColors.primary }}>
           {item.preco}
         </p>
-        <p className="text-gray-600 mb-4 text-sm relative z-10">{item.desc}</p>
+        <p className="text-gray-600 mb-4 text-sm relative z-10 leading-relaxed">{item.desc}</p>
         
-        <div className="flex relative z-10">
-          {[...Array(5)].map((_, i) => (
-            <svg
-              key={i}
-              className={`w-4 h-4 ${i < item.stars ? '' : 'text-gray-300'}`}
-              style={{ color: i < item.stars ? brandColors.secondary : undefined }}
-              fill="currentColor"
-              viewBox="0 0 20 20"
-            >
-              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-            </svg>
-          ))}
+        <div className="flex items-center justify-between relative z-10 mb-4">
+          <div className="flex">
+            {[...Array(5)].map((_, i) => (
+              <svg
+                key={i}
+                className={`w-4 h-4 ${i < item.stars ? '' : 'text-gray-300'}`}
+                style={{ color: i < item.stars ? brandColors.secondary : undefined }}
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+            ))}
+          </div>
         </div>
+        
+        <motion.a
+          href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(`Olá! Gostaria de pedir: ${item.nome}`)}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-full py-2 px-4 rounded-lg font-semibold text-sm text-white flex items-center justify-center gap-2 relative z-10"
+          style={{ backgroundColor: '#25D366' }}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          <i className="fab fa-whatsapp text-lg"></i>
+          Pedir pelo WhatsApp
+        </motion.a>
       </motion.div>
     );
   };
@@ -247,13 +285,15 @@ export default function HomePage() {
               transition={{ delay: 0.4 }}
             >
               {[
-                { icon: 'instagram', color: '#E1306C' },
-                { icon: 'facebook', color: '#1877F2' },
-                { icon: 'whatsapp', color: '#25D366' }
+                { icon: 'instagram', color: '#E1306C', link: '#' },
+                { icon: 'facebook', color: '#1877F2', link: '#' },
+                { icon: 'whatsapp', color: '#25D366', link: `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}` }
               ].map((social) => (
                 <motion.a
                   key={social.icon}
-                  href="#"
+                  href={social.link}
+                  target={social.icon === 'whatsapp' ? '_blank' : undefined}
+                  rel={social.icon === 'whatsapp' ? 'noopener noreferrer' : undefined}
                   className="w-12 h-12 rounded-full flex items-center justify-center text-white text-2xl"
                   style={{ backgroundColor: social.color }}
                   whileHover={{ y: -5, scale: 1.1 }}
@@ -299,8 +339,9 @@ export default function HomePage() {
           </motion.p>
           
           <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 px-4">
-            <motion.button
-              className="py-3 sm:py-4 px-6 sm:px-8 rounded-full text-base sm:text-lg font-bold shadow-lg text-white transition-colors"
+            <motion.a
+              href="#cardapio"
+              className="py-3 sm:py-4 px-6 sm:px-8 rounded-full text-base sm:text-lg font-bold shadow-lg text-white transition-colors inline-block"
               style={{ backgroundColor: brandColors.primary }}
               onMouseEnter={(e) => e.currentTarget.style.backgroundColor = brandColors.rose.secondary}
               onMouseLeave={(e) => e.currentTarget.style.backgroundColor = brandColors.primary}
@@ -309,19 +350,23 @@ export default function HomePage() {
               transition={{ delay: 0.6, duration: 0.5 }}
             >
               EXPLORAR CARDÁPIO
-            </motion.button>
+            </motion.a>
             
-            <motion.button
-              className="py-3 sm:py-4 px-6 sm:px-8 rounded-full text-base sm:text-lg font-bold shadow-lg border-2 text-white transition-colors"
-              style={{ borderColor: 'white' }}
-              onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = 'white'; e.currentTarget.style.color = brandColors.dark; }}
-              onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'transparent'; e.currentTarget.style.color = 'white'; }}
+            <motion.a
+              href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="py-3 sm:py-4 px-6 sm:px-8 rounded-full text-base sm:text-lg font-bold shadow-lg border-2 text-white transition-colors inline-flex items-center gap-2"
+              style={{ borderColor: 'white', backgroundColor: 'rgba(37, 211, 102, 0.2)' }}
+              onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#25D366'; e.currentTarget.style.borderColor = '#25D366'; }}
+              onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'rgba(37, 211, 102, 0.2)'; e.currentTarget.style.borderColor = 'white'; }}
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.6, duration: 0.5 }}
             >
+              <i className="fab fa-whatsapp"></i>
               FAZER PEDIDO
-            </motion.button>
+            </motion.a>
           </div>
         </motion.div>
       </section>
@@ -398,6 +443,127 @@ export default function HomePage() {
         </motion.div>
       </section>
 
+      {/* Seção de Destaques */}
+      <section className="py-12 sm:py-20 px-4 md:px-6 bg-gradient-to-b from-white to-pink-50 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            className="text-center mb-12"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4" style={{ color: brandColors.dark }}>
+              <span style={{ color: brandColors.primary }}>DESTAQUES</span> DO MÊS
+            </h3>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Ofertas especiais e combos exclusivos para você aproveitar!
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+            {featuredItems.map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.2 }}
+                viewport={{ once: true }}
+                className="bg-white p-6 rounded-2xl shadow-xl hover:shadow-2xl transition-all relative overflow-hidden group border-2"
+                style={{ borderColor: brandColors.primary }}
+              >
+                <div className="absolute top-4 right-4 text-4xl opacity-20">{item.emoji}</div>
+                <div className="relative z-10">
+                  <div className="flex items-center justify-between mb-3">
+                    <h4 className="text-xl font-bold text-gray-900">{item.nome}</h4>
+                    <span className="text-2xl">{item.emoji}</span>
+                  </div>
+                  <p className="text-2xl font-bold mb-3" style={{ color: brandColors.primary }}>
+                    {item.preco}
+                  </p>
+                  <p className="text-gray-600 mb-4 text-sm leading-relaxed">{item.desc}</p>
+                  <div className="flex mb-4">
+                    {[...Array(5)].map((_, i) => (
+                      <svg
+                        key={i}
+                        className="w-4 h-4"
+                        style={{ color: brandColors.secondary }}
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                      >
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                    ))}
+                  </div>
+                  <motion.a
+                    href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(`Olá! Gostaria de pedir: ${item.nome}`)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full py-2 px-4 rounded-lg font-semibold text-sm text-white flex items-center justify-center gap-2"
+                    style={{ backgroundColor: '#25D366' }}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <i className="fab fa-whatsapp text-lg"></i>
+                    Pedir Agora
+                  </motion.a>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Seção de Depoimentos */}
+      <section className="py-12 sm:py-20 px-4 md:px-6 bg-white relative overflow-hidden">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            className="text-center mb-12"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4" style={{ color: brandColors.dark }}>
+              O QUE NOSSOS <span style={{ color: brandColors.primary }}>CLIENTES</span> DIZEM
+            </h3>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              A satisfação dos nossos clientes é a nossa maior recompensa
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {testimonials.map((testimonial, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="bg-gradient-to-br from-pink-50 to-white p-6 rounded-2xl shadow-lg border border-pink-100"
+              >
+                <div className="flex items-center mb-4">
+                  <div className="w-12 h-12 rounded-full bg-pink-200 flex items-center justify-center text-2xl mr-3">
+                    {testimonial.avatar}
+                  </div>
+                  <div>
+                    <h5 className="font-bold text-gray-900">{testimonial.nome}</h5>
+                    <div className="flex">
+                      {[...Array(testimonial.rating)].map((_, i) => (
+                        <svg key={i} className="w-4 h-4" style={{ color: brandColors.secondary }} fill="currentColor" viewBox="0 0 20 20">
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+                <p className="text-gray-600 text-sm leading-relaxed italic">"{testimonial.texto}"</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Sobre Section */}
       <section id="sobre" className="py-12 sm:py-20 px-4 md:px-6 bg-white relative overflow-hidden">
         <motion.div
@@ -470,7 +636,7 @@ export default function HomePage() {
               </motion.h3>
               
               <motion.p 
-                className="text-gray-600 mb-6 sm:mb-8 leading-relaxed text-base sm:text-lg"
+                className="text-gray-600 mb-4 sm:mb-6 leading-relaxed text-base sm:text-lg"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 transition={{ delay: 0.6, duration: 1 }}
@@ -480,6 +646,35 @@ export default function HomePage() {
                 Nossa filosofia é simples: cada doce é feito com amor, usando ingredientes selecionados e receitas 
                 que transformam momentos simples em experiências inesquecíveis.
               </motion.p>
+              
+              <motion.p 
+                className="text-gray-600 mb-6 sm:mb-8 leading-relaxed text-base sm:text-lg"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ delay: 0.8, duration: 1 }}
+                viewport={{ once: true }}
+              >
+                Trabalhamos apenas com ingredientes premium, sem conservantes ou aditivos artificiais. Cada receita 
+                é desenvolvida com cuidado especial, garantindo sabor autêntico e qualidade incomparável. Nossa missão 
+                é adoçar sua vida, um doce de cada vez!
+              </motion.p>
+
+              <motion.a
+                href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent('Olá! Gostaria de conhecer mais sobre a Jusato Confeitaria!')}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 py-3 px-6 rounded-full font-semibold text-white mb-6 sm:mb-8"
+                style={{ backgroundColor: '#25D366' }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ delay: 1, duration: 1 }}
+                viewport={{ once: true }}
+              >
+                <i className="fab fa-whatsapp text-xl"></i>
+                Fale Conosco no WhatsApp
+              </motion.a>
               
               <motion.div
                 className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4"
@@ -610,13 +805,15 @@ export default function HomePage() {
                   <h5 className="text-base sm:text-lg font-bold text-white mb-3 sm:mb-4">Redes Sociais</h5>
                   <div className="flex space-x-3 sm:space-x-4">
                     {[
-                      { name: 'instagram', icon: <i className="fab fa-instagram"></i>, color: '#E1306C' },
-                      { name: 'facebook', icon: <i className="fab fa-facebook-f"></i>, color: '#1877F2' },
-                      { name: 'whatsapp', icon: <i className="fab fa-whatsapp"></i>, color: '#25D366' }
+                      { name: 'instagram', icon: <i className="fab fa-instagram"></i>, color: '#E1306C', link: '#' },
+                      { name: 'facebook', icon: <i className="fab fa-facebook-f"></i>, color: '#1877F2', link: '#' },
+                      { name: 'whatsapp', icon: <i className="fab fa-whatsapp"></i>, color: '#25D366', link: `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}` }
                     ].map((social) => (
                       <motion.a
                         key={social.name}
-                        href="#"
+                        href={social.link}
+                        target={social.name === 'whatsapp' ? '_blank' : undefined}
+                        rel={social.name === 'whatsapp' ? 'noopener noreferrer' : undefined}
                         className="w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center text-white text-lg sm:text-xl shadow-lg"
                         style={{ backgroundColor: social.color }}
                         whileHover={{ y: -5, scale: 1.1, boxShadow: `0 5px 15px ${social.color}` }}
@@ -759,21 +956,53 @@ export default function HomePage() {
             </div>
             
             <div className="flex space-x-4 sm:space-x-6">
-              {['instagram', 'facebook', 'whatsapp'].map((social) => (
+              {[
+                { name: 'instagram', link: '#' },
+                { name: 'facebook', link: '#' },
+                { name: 'whatsapp', link: `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}` }
+              ].map((social) => (
                 <motion.a
-                  key={social}
-                  href="#"
+                  key={social.name}
+                  href={social.link}
+                  target={social.name === 'whatsapp' ? '_blank' : undefined}
+                  rel={social.name === 'whatsapp' ? 'noopener noreferrer' : undefined}
                   className="text-gray-400 hover:text-white transition-colors text-base sm:text-lg"
                   whileHover={{ y: -3 }}
                   whileTap={{ scale: 0.9 }}
                 >
-                  <i className={`fab fa-${social}`}></i>
+                  <i className={`fab fa-${social.name}`}></i>
                 </motion.a>
               ))}
             </div>
           </motion.div>
         </div>
       </footer>
+
+      {/* Botão Flutuante WhatsApp */}
+      <motion.a
+        href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-6 right-6 z-50 w-16 h-16 rounded-full shadow-2xl flex items-center justify-center text-white text-2xl"
+        style={{ backgroundColor: '#25D366' }}
+        initial={{ scale: 0, rotate: -180 }}
+        animate={{ scale: 1, rotate: 0 }}
+        transition={{ delay: 1, type: 'spring', stiffness: 200 }}
+        whileHover={{ scale: 1.1, rotate: 5 }}
+        whileTap={{ scale: 0.9 }}
+      >
+        <i className="fab fa-whatsapp"></i>
+      </motion.a>
+
+      {/* Badge de notificação no botão WhatsApp */}
+      <motion.div
+        className="fixed bottom-20 right-6 z-50 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg"
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: [0, 1, 1, 0], y: [10, 0, 0, 10] }}
+        transition={{ delay: 2, duration: 3, repeat: Infinity, repeatDelay: 5 }}
+      >
+        Faça seu pedido!
+      </motion.div>
     </div>
   );
 }
