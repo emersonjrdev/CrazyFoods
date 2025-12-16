@@ -153,7 +153,7 @@ export default function HomePage() {
         <nav className="hidden md:flex space-x-8">
           {['Cardápio', 'Sobre', 'Contato'].map((item) => (
             <motion.a
-              whileHover={{ scale: 1.1, color: brandColors.cheese.primary }}
+              whileHover={{ scale: 1.1, color: brandColors.secondary }}
               whileTap={{ scale: 0.95 }}
               key={item}
               href={`#${item.toLowerCase()}`}
@@ -162,7 +162,7 @@ export default function HomePage() {
               {item}
               <motion.span
                 className="absolute bottom-0 left-0 w-full h-0.5"
-                style={{ backgroundColor: brandColors.glasses.primary }}
+                style={{ backgroundColor: brandColors.primary }}
                 initial={false}
                 transition={{ type: 'spring', bounce: 0.25, duration: 0.5 }}
               />
@@ -174,7 +174,7 @@ export default function HomePage() {
         <motion.button
           className="md:hidden p-2 rounded-lg relative z-[60]"
           style={{ 
-            backgroundColor: menuOpen ? 'transparent' : brandColors.glasses.primary,
+            backgroundColor: menuOpen ? 'transparent' : brandColors.primary,
             width: '44px',
             height: '44px',
             display: 'flex',
@@ -375,7 +375,7 @@ export default function HomePage() {
                 key={category}
                 className={`px-4 sm:px-6 py-2 rounded-full font-semibold text-xs sm:text-sm whitespace-nowrap transition-all ${activeCategory === category ? 'text-white' : 'text-gray-700'}`}
                 style={{
-                  backgroundColor: activeCategory === category ? brandColors.primary : 'rgba(0,0,0,0.05)'
+                  backgroundColor: activeCategory === category ? brandColors.primary : brandColors.cream.primary
                 }}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
