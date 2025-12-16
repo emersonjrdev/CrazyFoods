@@ -4,7 +4,7 @@ import { useInView } from "react-intersection-observer";
 
 export default function HomePage() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [activeCategory, setActiveCategory] = useState("burgers");
+  const [activeCategory, setActiveCategory] = useState("doces");
   const [isMobile, setIsMobile] = useState(false);
 
   // Corrige o bug de scroll quando o menu está aberto
@@ -28,23 +28,22 @@ export default function HomePage() {
     };
   }, [menuOpen]);
 
-  // PALETA DE CORES BASEADA NA SUA LOGO
+  // PALETA DE CORES BASEADA NA LOGO JUSATO - CONFEITARIA DE DOCES ARTESANAIS
   const brandColors = {
-    hair: { primary: "#D93952", secondary: "#8C1F30" },
-    glasses: { primary: "#E6448B", secondary: "#AF0F4F" },
-    lips: { primary: "#F051A3", secondary: "#A91858" },
-    skin: "#F7D7C3",
-    nails: "#D14887",
-    bread: { primary: "#F5A849", secondary: "#E07E20" },
-    lettuce: { primary: "#A6D02C", secondary: "#568B1F" },
-    cheese: { primary: "#F9DF4A", secondary: "#E6C010" },
-    meat: { primary: "#4B2605", secondary: "#723F0C" },
-    background: "#000000",
-    primary: "#E6448B",
-    secondary: "#F5A849",
-    accent: "#A6D02C",
-    dark: "#1A1A1A",
-    light: "#FFF5EB"
+    // Tons pastéis e suaves de confeitaria
+    rose: { primary: "#FFB6C1", secondary: "#FF91A4" }, // Rosa claro
+    pink: { primary: "#FFC0CB", secondary: "#FFB3BA" }, // Rosa bebê
+    cream: { primary: "#FFF8DC", secondary: "#FFF5E1" }, // Creme
+    gold: { primary: "#FFD700", secondary: "#FFA500" }, // Dourado
+    lavender: { primary: "#E6E6FA", secondary: "#DDA0DD" }, // Lavanda
+    mint: { primary: "#F0FFF0", secondary: "#E0FFE0" }, // Menta suave
+    peach: { primary: "#FFE5B4", secondary: "#FFDAB9" }, // Pêssego
+    background: "#FFF8F0", // Fundo creme muito claro
+    primary: "#FFB6C1", // Rosa principal
+    secondary: "#FFD700", // Dourado
+    accent: "#FFC0CB", // Rosa bebê
+    dark: "#8B4C6F", // Roxo escuro suave
+    light: "#FFF8F0" // Creme claro
   };
 
   const fadeIn = {
@@ -53,18 +52,21 @@ export default function HomePage() {
   };
 
   const menuCategories = {
-    burgers: [
-      { nome: "Crazy Mega", preco: "R$24,90", desc: "3 carnes, 3 queijos, bacon, onion rings e molho especial", stars: 5 },
-      { nome: "Tropical Explosion", preco: "R$22,50", desc: "Carne grelhada, abacaxi caramelizado, bacon e molho teriyaki", stars: 4 },
-      { nome: "Veggie Power", preco: "R$21,00", desc: "Hambúrguer de grão-de-bico, abacate e vegetais frescos", stars: 4 }
+    doces: [
+      { nome: "Brigadeiro Gourmet", preco: "R$3,50", desc: "Brigadeiro artesanal com chocolate belga e granulado especial", stars: 5 },
+      { nome: "Cupcake Personalizado", preco: "R$12,00", desc: "Cupcake com cobertura de buttercream e decoração artesanal", stars: 5 },
+      { nome: "Torta de Morango", preco: "R$45,00", desc: "Torta cremosa com morangos frescos e massa amanteigada", stars: 5 },
+      { nome: "Brownie com Nutella", preco: "R$8,50", desc: "Brownie fudgy com camada de Nutella e nozes", stars: 5 }
     ],
-    acompanhamentos: [
-      { nome: "Crazy Fries", preco: "R$16,00", desc: "Batata rústica com cheddar, bacon e pimenta jalapeño", stars: 5 },
-      { nome: "Onion Madness", preco: "R$15,00", desc: "Anéis de cebola empanados crocantes com molho especial", stars: 4 }
+    bolos: [
+      { nome: "Bolo de Chocolate", preco: "R$85,00", desc: "Bolo de chocolate belga com recheio de ganache e frutas", stars: 5 },
+      { nome: "Bolo Red Velvet", preco: "R$95,00", desc: "Bolo aveludado com cream cheese frosting e decoração elegante", stars: 5 },
+      { nome: "Bolo de Morango", preco: "R$75,00", desc: "Bolo branco com morangos frescos e creme de baunilha", stars: 5 }
     ],
-    bebidas: [
-      { nome: "Milkshake Monster", preco: "R$18,00", desc: "Sorvete de baunilha, brownie, calda de chocolate e chantilly", stars: 5 },
-      { nome: "Crazy Soda", preco: "R$8,00", desc: "Refrigerante artesanal com sabores exclusivos", stars: 4 }
+    sobremesas: [
+      { nome: "Petit Gateau", preco: "R$18,00", desc: "Bolinho quente de chocolate com sorvete de baunilha", stars: 5 },
+      { nome: "Cheesecake de Frutas Vermelhas", preco: "R$22,00", desc: "Cheesecake cremoso com calda de frutas vermelhas", stars: 5 },
+      { nome: "Tiramisu Artesanal", preco: "R$20,00", desc: "Tiramisu tradicional com café especial e cacau", stars: 5 }
     ]
   };
 
@@ -83,8 +85,17 @@ export default function HomePage() {
         animate={controls}
         variants={fadeIn}
         transition={{ duration: 0.5, delay: delay * 0.1 }}
-        className="bg-white p-6 rounded-2xl shadow-xl hover:shadow-2xl transition-all cursor-pointer border-2 border-transparent hover:border-yellow-300 relative overflow-hidden group"
-        style={{ background: `linear-gradient(145deg, #fff 0%, ${brandColors.light} 100%)` }}
+        className="bg-white p-6 rounded-2xl shadow-xl hover:shadow-2xl transition-all cursor-pointer border-2 relative overflow-hidden group"
+        style={{ 
+          background: `linear-gradient(145deg, #fff 0%, ${brandColors.cream.primary} 100%)`,
+          borderColor: 'transparent'
+        }}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.borderColor = brandColors.primary;
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.borderColor = 'transparent';
+        }}
       >
         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-pink-100 to-transparent opacity-0 group-hover:opacity-20 -rotate-45 scale-150 group-hover:scale-100 transition-all duration-500"></div>
         
@@ -98,7 +109,8 @@ export default function HomePage() {
           {[...Array(5)].map((_, i) => (
             <svg
               key={i}
-              className={`w-4 h-4 ${i < item.stars ? 'text-yellow-400' : 'text-gray-300'}`}
+              className={`w-4 h-4 ${i < item.stars ? '' : 'text-gray-300'}`}
+              style={{ color: i < item.stars ? brandColors.secondary : undefined }}
               fill="currentColor"
               viewBox="0 0 20 20"
             >
@@ -113,22 +125,23 @@ export default function HomePage() {
   return (
     <div className="min-h-screen text-gray-800 font-sans overflow-x-hidden" style={{ backgroundColor: brandColors.light }}>
       {/* Header */}
-      <header className="sticky top-0 z-50 py-3 px-4 md:px-6 flex justify-between items-center shadow-lg backdrop-blur-md bg-black bg-opacity-80">
+      <header className="sticky top-0 z-50 py-3 px-4 md:px-6 flex justify-between items-center shadow-lg backdrop-blur-md" style={{ backgroundColor: `${brandColors.dark}E6` }}>
         <motion.div
           initial={{ x: -100, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.8, type: 'spring' }}
           className="flex items-center"
         >
-          <div className="w-12 h-12 md:w-16 md:h-16 rounded-full overflow-hidden border-2 border-yellow-400 mr-3">
-            <img src="/Crazy.png" alt="Crazy Food's Logo" className="w-full h-full object-cover" />
+          <div className="w-12 h-12 md:w-16 md:h-16 rounded-full overflow-hidden border-2 mr-3 shadow-lg" style={{ borderColor: brandColors.primary }}>
+            <img src="/jusato.jpg" alt="Jusato Confeitaria Logo" className="w-full h-full object-cover" />
           </div>
           
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }} className="text-2xl md:text-3xl font-extrabold">
-            <span className="text-yellow-400">CRAZY</span>
-            <span className="text-white"> FOOD'S</span>
+            <span style={{ color: brandColors.primary }}>JUSATO</span>
+            <span className="text-white"> CONFEITARIA</span>
             <motion.div 
-              className="h-1 bg-gradient-to-r from-yellow-400 to-red-500 mt-1"
+              className="h-1 mt-1"
+              style={{ background: `linear-gradient(to right, ${brandColors.primary}, ${brandColors.secondary})` }}
               initial={{ scaleX: 0 }}
               animate={{ scaleX: 1 }}
               transition={{ duration: 0.8, delay: 0.5 }}
@@ -157,7 +170,7 @@ export default function HomePage() {
           ))}
         </nav>
         
-        {/* Menu Mobile Hamburguer - Versão Corrigida */}
+        {/* Menu Mobile - Versão Corrigida */}
         <motion.button
           className="md:hidden p-2 rounded-lg relative z-[60]"
           style={{ 
@@ -257,26 +270,13 @@ export default function HomePage() {
       {/* Hero Section with Video/Image */}
       <section className="relative h-[90vh] md:h-screen flex items-center justify-center text-center px-4 overflow-hidden">
         <div className="absolute inset-0">
-          {!isMobile ? (
-            <video 
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="absolute h-full w-full object-cover"
-              style={{ opacity: 0.4 }}
-            >
-              <source src="/crazy.mp4" type="video/mp4" />
-            </video>
-          ) : (
-            <img 
-              src="/fallback.png" 
-              alt="Crazy Food's Background"
-              className="absolute h-full w-full object-cover"
-              style={{ opacity: 0.4 }}
-            />
-          )}
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60"></div>
+          <img 
+            src="/jusato.jpg" 
+            alt="Jusato Confeitaria Background"
+            className="absolute h-full w-full object-cover"
+            style={{ opacity: 0.5 }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-50"></div>
         </div>
 
         <motion.div className="relative z-10 max-w-4xl px-4 text-white w-full">
@@ -286,7 +286,7 @@ export default function HomePage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            SABORES QUE EXPLODEM
+            DOCES COM AMOR
           </motion.h2>
           
           <motion.p 
@@ -295,12 +295,15 @@ export default function HomePage() {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.8 }}
           >
-            Combinações insanas que desafiam a gravidade e o bom senso!
+            Confeitaria artesanal com receitas especiais e ingredientes selecionados!
           </motion.p>
           
           <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 px-4">
             <motion.button
-              className="py-3 sm:py-4 px-6 sm:px-8 rounded-full text-base sm:text-lg font-bold shadow-lg bg-yellow-500 hover:bg-yellow-600 transition-colors"
+              className="py-3 sm:py-4 px-6 sm:px-8 rounded-full text-base sm:text-lg font-bold shadow-lg text-white transition-colors"
+              style={{ backgroundColor: brandColors.primary }}
+              onMouseEnter={(e) => e.currentTarget.style.backgroundColor = brandColors.rose.secondary}
+              onMouseLeave={(e) => e.currentTarget.style.backgroundColor = brandColors.primary}
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.6, duration: 0.5 }}
@@ -309,7 +312,10 @@ export default function HomePage() {
             </motion.button>
             
             <motion.button
-              className="py-3 sm:py-4 px-6 sm:px-8 rounded-full text-base sm:text-lg font-bold shadow-lg border-2 border-white hover:bg-white hover:text-black transition-colors"
+              className="py-3 sm:py-4 px-6 sm:px-8 rounded-full text-base sm:text-lg font-bold shadow-lg border-2 text-white transition-colors"
+              style={{ borderColor: 'white' }}
+              onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = 'white'; e.currentTarget.style.color = brandColors.dark; }}
+              onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'transparent'; e.currentTarget.style.color = 'white'; }}
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.6, duration: 0.5 }}
@@ -352,7 +358,7 @@ export default function HomePage() {
             transition={{ delay: 0.5, duration: 0.8 }}
             viewport={{ once: true }}
           >
-            Seleção premium de sabores que vão explodir seu paladar
+            Doces artesanais feitos com carinho e ingredientes de primeira qualidade
           </motion.p>
         </motion.div>
         
@@ -375,9 +381,9 @@ export default function HomePage() {
                 whileTap={{ scale: 0.95 }}
                 onClick={() => setActiveCategory(category)}
               >
-                {category === 'burgers' && 'Hambúrgueres'}
-                {category === 'acompanhamentos' && 'Acompanhamentos'}
-                {category === 'bebidas' && 'Bebidas'}
+                {category === 'doces' && 'Doces'}
+                {category === 'bolos' && 'Bolos'}
+                {category === 'sobremesas' && 'Sobremesas'}
               </motion.button>
             ))}
           </div>
@@ -425,8 +431,8 @@ export default function HomePage() {
             >
               <div className="relative">
                 <motion.img 
-                  src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5" 
-                  alt="Equipe Crazy Food's"
+                  src="/jusato.jpg" 
+                  alt="Jusato Confeitaria"
                   className="rounded-2xl shadow-2xl w-full h-auto"
                   whileHover={{ scale: 1.02 }}
                   transition={{ duration: 0.3 }}
@@ -470,9 +476,9 @@ export default function HomePage() {
                 transition={{ delay: 0.6, duration: 1 }}
                 viewport={{ once: true }}
               >
-                A Crazy Food's nasceu em 2018 da paixão por hambúrgueres e da vontade de fazer diferente. 
-                Nossa filosofia é simples: ingredientes de altíssima qualidade combinados de formas inusitadas 
-                que desafiam o convencional.
+                A Jusato Confeitaria nasceu da paixão por doces artesanais e do desejo de criar momentos especiais. 
+                Nossa filosofia é simples: cada doce é feito com amor, usando ingredientes selecionados e receitas 
+                que transformam momentos simples em experiências inesquecíveis.
               </motion.p>
               
               <motion.div
@@ -483,10 +489,10 @@ export default function HomePage() {
                 viewport={{ once: true }}
               >
                 {[
-                  { icon: "🍔", title: "200+", subtitle: "Combinações criadas" },
-                  { icon: "🏆", title: "3x", subtitle: "Melhor lanchonete" },
-                  { icon: "🌟", title: "4.9", subtitle: "Avaliação média" },
-                  { icon: "😋", title: "98%", subtitle: "Clientes satisfeitos" },
+                  { icon: "🍰", title: "150+", subtitle: "Receitas especiais" },
+                  { icon: "🏆", title: "5x", subtitle: "Melhor confeitaria" },
+                  { icon: "🌟", title: "5.0", subtitle: "Avaliação média" },
+                  { icon: "💝", title: "100%", subtitle: "Feito com amor" },
                 ].map((item, index) => (
                   <motion.div
                     key={index}
@@ -549,7 +555,7 @@ export default function HomePage() {
                     { 
                       icon: "📍", 
                       title: "Endereço", 
-                      content: "Av. dos Sabores Loucos, 1234\nCentro - São Paulo/SP",
+                      content: "Rua dos Doces, 456\nCentro - São Paulo/SP",
                       link: "https://goo.gl/maps/example"
                     },
                     { 
@@ -561,7 +567,7 @@ export default function HomePage() {
                     { 
                       icon: "🕒", 
                       title: "Horário de Funcionamento", 
-                      content: "Terça a Domingo\n18:00 - 23:00",
+                      content: "Segunda a Sábado\n09:00 - 19:00",
                     },
                   ].map((item, index) => (
                     <motion.div 
@@ -641,7 +647,7 @@ export default function HomePage() {
                     style={{ border: 0 }} 
                     allowFullScreen 
                     loading="lazy"
-                    title="Localização Crazy Food's"
+                    title="Localização Jusato Confeitaria"
                     className="rounded-xl"
                   ></iframe>
                 </div>
@@ -688,15 +694,15 @@ export default function HomePage() {
                   whileHover={{ rotate: 360 }}
                   transition={{ duration: 0.8 }}
                 >
-                  <img src="/Crazy.png" alt="Crazy Food's Logo" className="h-full w-full object-cover" />
+                  <img src="/jusato.jpg" alt="Jusato Confeitaria Logo" className="h-full w-full object-cover" />
                 </motion.div>
                 <h4 className="text-2xl font-bold text-white">
-                  <span style={{ color: brandColors.primary }}>CRAZY</span>
-                  <span style={{ color: brandColors.secondary }}>FOOD'S</span>
+                  <span style={{ color: brandColors.primary }}>JUSATO</span>
+                  <span style={{ color: brandColors.secondary }}> CONFEITARIA</span>
                 </h4>
               </div>
               <p className="text-gray-400 mt-2 sm:mt-3 text-xs sm:text-sm max-w-xs">
-                O sabor mais louco da cidade! Hamburgueres artesanais e combinações únicas.
+                Doces artesanais feitos com amor! Confeitaria especializada em criar momentos doces e inesquecíveis.
               </p>
             </motion.div>
             
@@ -726,8 +732,8 @@ export default function HomePage() {
               <div>
                 <h5 className="text-white font-bold mb-3 sm:mb-4 text-sm sm:text-base">Horário</h5>
                 <ul className="space-y-1 sm:space-y-2 text-gray-400 text-xs sm:text-sm">
-                  <li>Terça - Domingo</li>
-                  <li>18:00 - 23:00</li>
+                  <li>Segunda - Sábado</li>
+                  <li>09:00 - 19:00</li>
                 </ul>
               </div>
               
@@ -735,7 +741,7 @@ export default function HomePage() {
                 <h5 className="text-white font-bold mb-3 sm:mb-4 text-sm sm:text-base">Contato</h5>
                 <ul className="space-y-1 sm:space-y-2 text-gray-400 text-xs sm:text-sm">
                   <li>(11) 98765-4321</li>
-                  <li>contato@crazyfoods.com</li>
+                  <li>contato@jusatoconfeitaria.com</li>
                 </ul>
               </div>
             </motion.div>
@@ -749,7 +755,7 @@ export default function HomePage() {
             viewport={{ once: true }}
           >
             <div className="text-gray-400 text-xs sm:text-sm mb-3 sm:mb-4 md:mb-0">
-              © {new Date().getFullYear()} Crazy Food's. Todos os direitos reservados.
+              © {new Date().getFullYear()} Jusato Confeitaria. Todos os direitos reservados.
             </div>
             
             <div className="flex space-x-4 sm:space-x-6">
