@@ -105,7 +105,7 @@ export default function HomePage() {
         animate={controls}
         variants={fadeIn}
         transition={{ duration: 0.5, delay: delay * 0.1 }}
-        className="bg-white p-6 rounded-2xl shadow-xl hover:shadow-2xl transition-all cursor-pointer border-2 relative overflow-hidden group"
+        className="bg-white p-4 sm:p-5 md:p-6 rounded-xl sm:rounded-2xl shadow-xl hover:shadow-2xl transition-all cursor-pointer border-2 relative overflow-hidden group"
         style={{ 
           background: `linear-gradient(145deg, #fff 0%, ${brandColors.cream.primary} 100%)`,
           borderColor: 'transparent'
@@ -119,14 +119,14 @@ export default function HomePage() {
       >
         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-pink-100 to-transparent opacity-0 group-hover:opacity-20 -rotate-45 scale-150 group-hover:scale-100 transition-all duration-500"></div>
         
-        <div className="flex items-center justify-between mb-2 relative z-10">
-          <h4 className="text-xl font-bold text-gray-900">{item.nome}</h4>
-          {item.emoji && <span className="text-2xl">{item.emoji}</span>}
+        <div className="flex items-center justify-between mb-2 relative z-10 gap-2">
+          <h4 className="text-base sm:text-lg md:text-xl font-bold text-gray-900 flex-1">{item.nome}</h4>
+          {item.emoji && <span className="text-xl sm:text-2xl flex-shrink-0">{item.emoji}</span>}
         </div>
-        <p className="text-lg font-bold mb-3 relative z-10" style={{ color: brandColors.primary }}>
+        <p className="text-base sm:text-lg font-bold mb-2 sm:mb-3 relative z-10" style={{ color: brandColors.primary }}>
           {item.preco}
         </p>
-        <p className="text-gray-600 mb-4 text-sm relative z-10 leading-relaxed">{item.desc}</p>
+        <p className="text-gray-600 mb-3 sm:mb-4 text-xs sm:text-sm relative z-10 leading-relaxed">{item.desc}</p>
         
         <div className="flex items-center justify-between relative z-10 mb-4">
           <div className="flex">
@@ -148,13 +148,13 @@ export default function HomePage() {
           href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(`Olá! Gostaria de pedir: ${item.nome}`)}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="w-full py-2 px-4 rounded-lg font-semibold text-sm text-white flex items-center justify-center gap-2 relative z-10"
+          className="w-full py-2 sm:py-2.5 px-3 sm:px-4 rounded-lg font-semibold text-xs sm:text-sm text-white flex items-center justify-center gap-2 relative z-10"
           style={{ backgroundColor: '#25D366' }}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          <i className="fab fa-whatsapp text-lg"></i>
-          Pedir pelo WhatsApp
+          <i className="fab fa-whatsapp text-base sm:text-lg"></i>
+          <span className="whitespace-nowrap">Pedir pelo WhatsApp</span>
         </motion.a>
       </motion.div>
     );
@@ -163,15 +163,15 @@ export default function HomePage() {
   return (
     <div className="min-h-screen text-gray-800 font-sans overflow-x-hidden" style={{ backgroundColor: brandColors.light }}>
       {/* Header */}
-      <header className="sticky top-0 z-50 py-4 px-4 md:px-8 flex justify-between items-center shadow-xl backdrop-blur-lg border-b border-white border-opacity-10" style={{ backgroundColor: `${brandColors.dark}F0` }}>
+      <header className="sticky top-0 z-50 py-2 sm:py-3 md:py-4 px-3 sm:px-4 md:px-8 flex justify-between items-center shadow-xl backdrop-blur-lg border-b border-white border-opacity-10" style={{ backgroundColor: `${brandColors.dark}F0` }}>
         <motion.div
           initial={{ x: -100, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.8, type: 'spring' }}
-          className="flex items-center gap-3 md:gap-4"
+          className="flex items-center gap-2 sm:gap-3 md:gap-4 flex-shrink-0"
         >
           <motion.div 
-            className="w-14 h-14 md:w-20 md:h-20 rounded-full overflow-hidden border-2 shadow-xl relative group"
+            className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 rounded-full overflow-hidden border-2 shadow-xl relative group flex-shrink-0"
             style={{ borderColor: brandColors.primary }}
             whileHover={{ scale: 1.05, rotate: 5 }}
             transition={{ type: 'spring', stiffness: 300 }}
@@ -184,11 +184,11 @@ export default function HomePage() {
             initial={{ opacity: 0, y: -10 }} 
             animate={{ opacity: 1, y: 0 }} 
             transition={{ delay: 0.3, duration: 0.6 }}
-            className="flex flex-col"
+            className="flex flex-col min-w-0"
           >
-            <div className="flex items-baseline gap-2">
+            <div className="flex items-baseline gap-1 sm:gap-2 flex-wrap">
               <motion.span 
-                className="text-2xl md:text-4xl font-black tracking-tight"
+                className="text-lg sm:text-xl md:text-2xl lg:text-4xl font-black tracking-tight"
                 style={{ 
                   color: brandColors.primary,
                   textShadow: `0 0 20px ${brandColors.primary}40`
@@ -198,14 +198,14 @@ export default function HomePage() {
                 JUSATO
               </motion.span>
               <motion.span 
-                className="text-xl md:text-2xl font-bold text-white opacity-90"
+                className="text-sm sm:text-base md:text-lg lg:text-2xl font-bold text-white opacity-90 whitespace-nowrap"
                 style={{ letterSpacing: '0.05em' }}
               >
                 CONFEITARIA
               </motion.span>
             </div>
             <motion.p 
-              className="text-xs md:text-sm font-medium text-white opacity-70 mt-0.5 hidden sm:block"
+              className="text-[10px] sm:text-xs md:text-sm font-medium text-white opacity-70 mt-0.5 hidden sm:block"
               style={{ letterSpacing: '0.1em' }}
               initial={{ opacity: 0 }}
               animate={{ opacity: 0.7 }}
@@ -214,7 +214,7 @@ export default function HomePage() {
               Doces Artesanais com Amor
             </motion.p>
             <motion.div 
-              className="h-0.5 mt-1 rounded-full"
+              className="h-0.5 mt-0.5 sm:mt-1 rounded-full hidden sm:block"
               style={{ 
                 background: `linear-gradient(90deg, ${brandColors.primary} 0%, ${brandColors.secondary} 100%)`,
                 boxShadow: `0 0 10px ${brandColors.primary}60`
@@ -323,12 +323,12 @@ export default function HomePage() {
               &times;
             </button>
             
-            <div className="flex flex-col items-center space-y-8 w-full">
+            <div className="flex flex-col items-center space-y-6 sm:space-y-8 w-full">
               {['Cardápio', 'Sobre', 'Contato'].map((item, index) => (
                 <motion.a
                   key={item}
                   href={`#${item.toLowerCase()}`}
-                  className="text-3xl font-bold text-white hover:text-yellow-400 transition-colors py-3 w-full text-center"
+                  className="text-2xl sm:text-3xl font-bold text-white hover:text-yellow-400 transition-colors py-2 sm:py-3 w-full text-center"
                   onClick={() => setMenuOpen(false)}
                   initial={{ y: 20, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
@@ -337,14 +337,29 @@ export default function HomePage() {
                   {item}
                 </motion.a>
               ))}
+              <motion.a
+                href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-4 px-6 py-3 rounded-full font-bold text-base sm:text-lg text-white flex items-center justify-center gap-2"
+                style={{ backgroundColor: '#25D366' }}
+                onClick={() => setMenuOpen(false)}
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.4, duration: 0.5 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <i className="fab fa-whatsapp text-xl"></i>
+                Pedir Agora
+              </motion.a>
             </div>
 
             {/* Redes sociais */}
             <motion.div 
-              className="mt-12 flex space-x-6"
+              className="mt-8 sm:mt-12 flex space-x-4 sm:space-x-6"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.4 }}
+              transition={{ delay: 0.5 }}
             >
               {[
                 { icon: 'instagram', color: '#E1306C', link: '#' },
@@ -356,10 +371,11 @@ export default function HomePage() {
                   href={social.link}
                   target={social.icon === 'whatsapp' ? '_blank' : undefined}
                   rel={social.icon === 'whatsapp' ? 'noopener noreferrer' : undefined}
-                  className="w-12 h-12 rounded-full flex items-center justify-center text-white text-2xl"
+                  className="w-11 h-11 sm:w-12 sm:h-12 rounded-full flex items-center justify-center text-white text-xl sm:text-2xl"
                   style={{ backgroundColor: social.color }}
                   whileHover={{ y: -5, scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
+                  onClick={() => setMenuOpen(false)}
                 >
                   <i className={`fab fa-${social.icon}`}></i>
                 </motion.a>
@@ -370,7 +386,7 @@ export default function HomePage() {
       </AnimatePresence>
 
       {/* Hero Section with Video/Image */}
-      <section className="relative h-[90vh] md:h-screen flex items-center justify-center text-center px-4 overflow-hidden">
+      <section className="relative h-[85vh] sm:h-[90vh] md:h-screen flex items-center justify-center text-center px-3 sm:px-4 overflow-hidden">
         <div className="absolute inset-0">
           <video 
             autoPlay
@@ -391,9 +407,9 @@ export default function HomePage() {
           <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60"></div>
         </div>
 
-        <motion.div className="relative z-10 max-w-4xl px-4 text-white w-full">
+        <motion.div className="relative z-10 max-w-4xl px-2 sm:px-4 text-white w-full">
           <motion.h2 
-            className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-extrabold mb-4 sm:mb-6 px-2"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl xl:text-8xl font-extrabold mb-3 sm:mb-4 md:mb-6 px-2 leading-tight"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -402,7 +418,7 @@ export default function HomePage() {
           </motion.h2>
           
           <motion.p 
-            className="text-lg sm:text-xl md:text-2xl mb-6 sm:mb-8 font-medium px-4"
+            className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl mb-4 sm:mb-6 md:mb-8 font-medium px-2 sm:px-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.8 }}
@@ -410,10 +426,10 @@ export default function HomePage() {
             Confeitaria artesanal com receitas especiais e ingredientes selecionados!
           </motion.p>
           
-          <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 px-4">
+          <div className="flex flex-col sm:flex-row justify-center gap-2 sm:gap-3 md:gap-4 px-2 sm:px-4">
             <motion.a
               href="#cardapio"
-              className="py-3 sm:py-4 px-6 sm:px-8 rounded-full text-base sm:text-lg font-bold shadow-lg text-white transition-colors inline-block"
+              className="py-2.5 sm:py-3 md:py-4 px-5 sm:px-6 md:px-8 rounded-full text-sm sm:text-base md:text-lg font-bold shadow-lg text-white transition-colors inline-block text-center"
               style={{ backgroundColor: brandColors.primary }}
               onMouseEnter={(e) => e.currentTarget.style.backgroundColor = brandColors.rose.secondary}
               onMouseLeave={(e) => e.currentTarget.style.backgroundColor = brandColors.primary}
@@ -428,7 +444,7 @@ export default function HomePage() {
               href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="py-3 sm:py-4 px-6 sm:px-8 rounded-full text-base sm:text-lg font-bold shadow-lg border-2 text-white transition-colors inline-flex items-center gap-2"
+              className="py-2.5 sm:py-3 md:py-4 px-5 sm:px-6 md:px-8 rounded-full text-sm sm:text-base md:text-lg font-bold shadow-lg border-2 text-white transition-colors inline-flex items-center justify-center gap-2"
               style={{ borderColor: 'white', backgroundColor: 'rgba(37, 211, 102, 0.2)' }}
               onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#25D366'; e.currentTarget.style.borderColor = '#25D366'; }}
               onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'rgba(37, 211, 102, 0.2)'; e.currentTarget.style.borderColor = 'white'; }}
@@ -437,14 +453,14 @@ export default function HomePage() {
               transition={{ delay: 0.6, duration: 0.5 }}
             >
               <i className="fab fa-whatsapp"></i>
-              FAZER PEDIDO
+              <span className="whitespace-nowrap">FAZER PEDIDO</span>
             </motion.a>
           </div>
         </motion.div>
       </section>
 
       {/* Cardápio Section */}
-      <section id="cardapio" className="py-12 sm:py-20 px-4 md:px-6 max-w-7xl mx-auto">
+      <section id="cardapio" className="py-8 sm:py-12 md:py-20 px-3 sm:px-4 md:px-6 max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -453,7 +469,7 @@ export default function HomePage() {
           className="text-center mb-12 sm:mb-16"
         >
           <motion.h3 
-            className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 relative inline-block"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 relative inline-block px-2"
             style={{ color: brandColors.dark }}
           >
             <span>NOSSO </span>
@@ -506,7 +522,7 @@ export default function HomePage() {
           </div>
         </motion.div>
         
-        <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 px-2">
+        <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 px-2 sm:px-4">
           <AnimatePresence mode="wait">
             {menuCategories[activeCategory].map((item, index) => (
               <MenuItem key={`${activeCategory}-${index}`} item={item} delay={index} />
@@ -516,7 +532,7 @@ export default function HomePage() {
       </section>
 
       {/* Seção de Destaques */}
-      <section className="py-12 sm:py-20 px-4 md:px-6 bg-gradient-to-b from-white to-pink-50 relative overflow-hidden">
+      <section className="py-8 sm:py-12 md:py-20 px-3 sm:px-4 md:px-6 bg-gradient-to-b from-white to-pink-50 relative overflow-hidden">
         <div className="max-w-7xl mx-auto">
           <motion.div
             className="text-center mb-12"
@@ -525,15 +541,15 @@ export default function HomePage() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4" style={{ color: brandColors.dark }}>
+            <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 px-2" style={{ color: brandColors.dark }}>
               <span style={{ color: brandColors.primary }}>DESTAQUES</span> DO MÊS
             </h3>
-            <p className="text-gray-600 max-w-2xl mx-auto">
+            <p className="text-sm sm:text-base text-gray-600 max-w-2xl mx-auto px-2">
               Ofertas especiais e combos exclusivos para você aproveitar!
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
             {featuredItems.map((item, index) => (
               <motion.div
                 key={index}
@@ -541,7 +557,7 @@ export default function HomePage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.2 }}
                 viewport={{ once: true }}
-                className="bg-white p-6 rounded-2xl shadow-xl hover:shadow-2xl transition-all relative overflow-hidden group border-2"
+                className="bg-white p-4 sm:p-5 md:p-6 rounded-xl sm:rounded-2xl shadow-xl hover:shadow-2xl transition-all relative overflow-hidden group border-2"
                 style={{ borderColor: brandColors.primary }}
               >
                 <div className="absolute top-4 right-4 text-4xl opacity-20">{item.emoji}</div>
@@ -587,7 +603,7 @@ export default function HomePage() {
       </section>
 
       {/* Seção de Depoimentos */}
-      <section className="py-12 sm:py-20 px-4 md:px-6 bg-white relative overflow-hidden">
+      <section className="py-8 sm:py-12 md:py-20 px-3 sm:px-4 md:px-6 bg-white relative overflow-hidden">
         <div className="max-w-7xl mx-auto">
           <motion.div
             className="text-center mb-12"
@@ -596,15 +612,15 @@ export default function HomePage() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4" style={{ color: brandColors.dark }}>
+            <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 px-2" style={{ color: brandColors.dark }}>
               O QUE NOSSOS <span style={{ color: brandColors.primary }}>CLIENTES</span> DIZEM
             </h3>
-            <p className="text-gray-600 max-w-2xl mx-auto">
+            <p className="text-sm sm:text-base text-gray-600 max-w-2xl mx-auto px-2">
               A satisfação dos nossos clientes é a nossa maior recompensa
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {testimonials.map((testimonial, index) => (
               <motion.div
                 key={index}
@@ -637,7 +653,7 @@ export default function HomePage() {
       </section>
 
       {/* Sobre Section */}
-      <section id="sobre" className="py-12 sm:py-20 px-4 md:px-6 bg-white relative overflow-hidden">
+      <section id="sobre" className="py-8 sm:py-12 md:py-20 px-3 sm:px-4 md:px-6 bg-white relative overflow-hidden">
         <motion.div
           className="absolute -top-20 -left-20 w-40 h-40 rounded-full opacity-10"
           style={{ backgroundColor: brandColors.primary }}
@@ -700,7 +716,7 @@ export default function HomePage() {
               viewport={{ once: true }}
             >
               <motion.h3 
-                className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 sm:mb-8"
+                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 md:mb-8"
                 style={{ color: brandColors.primary }}
               >
                 <span style={{ color: brandColors.dark }}>NOSSA </span>
@@ -781,7 +797,7 @@ export default function HomePage() {
       {/* Contato Section */}
       <section 
         id="contato" 
-        className="py-12 sm:py-20 px-4 md:px-6 relative overflow-hidden"
+        className="py-8 sm:py-12 md:py-20 px-3 sm:px-4 md:px-6 relative overflow-hidden"
         style={{ background: `linear-gradient(135deg, ${brandColors.primary} 0%, ${brandColors.accent} 100%)` }}
       >
         <motion.div
@@ -796,7 +812,7 @@ export default function HomePage() {
         
         <div className="max-w-6xl mx-auto relative z-10">
           <motion.h3 
-            className="text-3xl sm:text-4xl md:text-5xl font-bold mb-12 sm:mb-16 text-center text-white"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-8 sm:mb-12 md:mb-16 text-center text-white px-2"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -939,7 +955,7 @@ export default function HomePage() {
       </section>
 
       {/* Footer */}
-      <footer className="py-8 sm:py-12 px-4 md:px-6 relative overflow-hidden" style={{ backgroundColor: brandColors.dark }}>
+      <footer className="py-6 sm:py-8 md:py-12 px-3 sm:px-4 md:px-6 relative overflow-hidden" style={{ backgroundColor: brandColors.dark }}>
         <motion.div
           className="absolute -bottom-20 -left-20 w-64 h-64 rounded-full opacity-10"
           style={{ backgroundColor: brandColors.primary }}
@@ -1055,7 +1071,7 @@ export default function HomePage() {
         href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`}
         target="_blank"
         rel="noopener noreferrer"
-        className="fixed bottom-6 right-6 z-50 w-16 h-16 rounded-full shadow-2xl flex items-center justify-center text-white text-2xl"
+        className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 w-14 h-14 sm:w-16 sm:h-16 rounded-full shadow-2xl flex items-center justify-center text-white text-xl sm:text-2xl"
         style={{ backgroundColor: '#25D366' }}
         initial={{ scale: 0, rotate: -180 }}
         animate={{ scale: 1, rotate: 0 }}
@@ -1068,7 +1084,7 @@ export default function HomePage() {
 
       {/* Badge de notificação no botão WhatsApp */}
       <motion.div
-        className="fixed bottom-20 right-6 z-50 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg"
+        className="fixed bottom-16 right-4 sm:bottom-20 sm:right-6 z-50 bg-red-500 text-white text-[10px] sm:text-xs font-bold px-2 sm:px-3 py-1 rounded-full shadow-lg whitespace-nowrap"
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: [0, 1, 1, 0], y: [10, 0, 0, 10] }}
         transition={{ delay: 2, duration: 3, repeat: Infinity, repeatDelay: 5 }}
