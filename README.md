@@ -1,13 +1,13 @@
 <div align="center">
 
-# 🚀 EMERSON JUNIOR
+# 🍰 JUSATO CONFEITARIA
 
-### ⚡ Full Stack Developer | Mobile + Web Specialist
+### ⚡ Doces Artesanais com Amor
 
-![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=30&duration=3000&pause=1000&color=00D9FF&center=true&vCenter=true&width=600&lines=Building+the+Future+%F0%9F%9A%80;Code+%3D+Art+%F0%9F%8E%A8;Innovation+is+Key+%E2%9A%A1)
+![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=30&duration=3000&pause=1000&color=FFB6C1&center=true&vCenter=true&width=600&lines=Doces+com+Amor+%F0%9F%8D%B0;Confeitaria+Artesanal+%F0%9F%8E%82;Ingredientes+Premium+%E2%9C%A8)
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/emerson-morales-junior-6469b8231/)
-[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:contato.juniormorales@gmail.com)
+[![Website](https://img.shields.io/badge/Website-Live-FFB6C1?style=for-the-badge&logo=vercel&logoColor=white)](https://your-vercel-url.vercel.app)
+[![WhatsApp](https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://wa.me/5511987654321)
 [![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://instagram.com/emersxn_jr)
 
 ---
@@ -16,171 +16,194 @@
 
 <div align="center">
 
-![Matrix Code](https://github.com/emersonjrdev/emersonjrdev/raw/main/gifs/matrix.gif)
+![Confeitaria](https://github.com/saadeghi/saadeghi/raw/master/dino.gif)
 
 </div>
 
 ---
 
-## 🎯 About Me
+## 🎯 Sobre o Projeto
 
 ```typescript
-const emerson = {
-  location: "São Paulo, Brazil 🇧🇷",
-  role: "Full Stack Developer",
-  specialties: ["Mobile Development", "Web Development", "Cloud Architecture"],
-  currentFocus: "Building scalable applications with cutting-edge tech",
-  mindset: "Code is poetry, innovation is the language"
+const jusatoConfeitaria = {
+  tipo: "Site Institucional",
+  objetivo: "Showcase de doces artesanais",
+  tecnologia: "React + Vite + Tailwind CSS",
+  features: [
+    "Cardápio interativo",
+    "Integração WhatsApp",
+    "Design responsivo",
+    "Animações suaves"
+  ],
+  filosofia: "Cada doce é feito com amor e ingredientes selecionados"
 };
 ```
 
 ---
 
-## 🛠️ Tech Arsenal
+## 🛠️ Tecnologias Utilizadas
 
-### 📱 Mobile Development
-
-<div align="center">
-
-![React Native](https://img.shields.io/badge/react_native-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
-![Flutter](https://img.shields.io/badge/Flutter-%2302569B.svg?style=for-the-badge&logo=Flutter&logoColor=white)
-![Expo](https://img.shields.io/badge/expo-1C1E24?style=for-the-badge&logo=expo&logoColor=#D04A37)
-
-</div>
-
-### 🌐 Web Development
+### Frontend
 
 <div align="center">
 
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
-![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
+![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
-![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white)
 
 </div>
 
-### ⚙️ Backend
+### Bibliotecas
 
 <div align="center">
 
-![Node.js](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
-![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)
-![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white)
-![Spring](https://img.shields.io/badge/spring-%236DB33F.svg?style=for-the-badge&logo=spring&logoColor=white)
+![Framer Motion](https://img.shields.io/badge/Framer%20Motion-0055FF?style=for-the-badge&logo=framer&logoColor=white)
+![React Intersection Observer](https://img.shields.io/badge/Intersection%20Observer-FF6B6B?style=for-the-badge)
 
 </div>
 
-### ☁️ Cloud & DevOps
+### Deploy
 
 <div align="center">
 
-![AWS](https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white)
-![Google Cloud](https://img.shields.io/badge/Google%20Cloud-%234285F4.svg?style=for-the-badge&logo=google-cloud&logoColor=white)
-![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
-
-</div>
-
-### 🗄️ Database
-
-<div align="center">
-
-![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)
-![MySQL](https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white)
-![PostgreSQL](https://img.shields.io/badge/postgresql-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white)
+![Vercel](https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white)
 
 </div>
 
 ---
 
-## 🌟 Featured Projects
+## ✨ Funcionalidades
 
-### 🔥 ConnectWork Ecosystem
+### 🎨 Design Moderno
+- Interface futurista e elegante
+- Paleta de cores pastéis personalizada
+- Animações suaves e interativas
+- Layout totalmente responsivo
 
-<div align="center">
+### 📱 Mobile First
+- 100% otimizado para dispositivos móveis
+- Menu hambúrguer animado
+- Touch-friendly em todos os elementos
+- Performance otimizada
 
-![Project Banner](https://github.com/emersonjrdev/emersonjrdev/raw/main/gifs/project-banner.gif)
+### 💬 Integração WhatsApp
+- Botão flutuante para pedidos
+- Links diretos em cada produto
+- Mensagens pré-formatadas
+- Call-to-action estratégicos
 
-</div>
+### 🎯 Seções Principais
+- **Hero Section** com vídeo de fundo
+- **Cardápio** interativo por categorias
+- **Destaques** do mês
+- **Depoimentos** de clientes
+- **Sobre** a confeitaria
+- **Contato** com mapa integrado
 
-#### 📱 [Mobile Version](https://github.com/emersonjrdev/connectwork-mobile)
+---
 
+## 🚀 Como Executar
+
+### Pré-requisitos
+
+```bash
+Node.js >= 16.0.0
+npm ou yarn
 ```
-┌─────────────────────────────────────┐
-│  🚀 React Native + Expo + Firebase  │
-│  ✨ Push Notifications               │
-│  📷 Camera Integration               │
-│  🔄 Offline Support                  │
-└─────────────────────────────────────┘
+
+### Instalação
+
+```bash
+# Clone o repositório
+git clone https://github.com/emersonjrdev/CrazyFoods.git
+
+# Entre na pasta
+cd CrazyFoods
+
+# Instale as dependências
+npm install
+
+# Execute o projeto
+npm run dev
 ```
 
-#### 🌐 [Web Version](https://github.com/emersonjrdev/connectwork-web)
+### Build para Produção
 
-```
-┌─────────────────────────────────────┐
-│  ⚡ React.js + Next.js + TypeScript  │
-│  💬 Real-time Chat                   │
-│  📊 User Analytics                   │
-│  🎨 Responsive Design                 │
-└─────────────────────────────────────┘
-```
-
-#### ⚙️ [Backend API](https://github.com/emersonjrdev/connectwork-api)
-
-```
-┌─────────────────────────────────────┐
-│  🔧 Node.js + Express + MySQL       │
-│  🔐 JWT Authentication               │
-│  ☁️ AWS Integration                   │
-│  📡 RESTful API                      │
-└─────────────────────────────────────┘
+```bash
+npm run build
+npm run preview
 ```
 
 ---
 
-## 📊 GitHub Analytics
+## 📁 Estrutura do Projeto
+
+```
+CrazyFoods/
+├── public/
+│   ├── jusato.jpg          # Logo da confeitaria
+│   └── video-background.mp4 # Vídeo de fundo
+├── src/
+│   ├── HomePage.jsx        # Componente principal
+│   ├── index.css           # Estilos globais
+│   └── main.jsx            # Entry point
+├── index.html
+├── package.json
+└── tailwind.config.js
+```
+
+---
+
+## 🎨 Paleta de Cores
+
+```css
+--primary: #FFB6C1    /* Rosa principal */
+--secondary: #FFD700  /* Dourado */
+--accent: #FFC0CB     /* Rosa bebê */
+--dark: #8B4C6F       /* Roxo escuro */
+--light: #FFF8F0      /* Creme claro */
+```
+
+---
+
+## 📊 Estatísticas
 
 <div align="center">
 
-![GitHub Streak](https://github-readme-streak-stats.herokuapp.com?user=emersonjrdev&theme=tokyonight&hide_border=true&date_format=j%20M%5B%20Y%5D&ring=00D9FF&fire=00D9FF&currStreakLabel=00D9FF)
-
-![GitHub Stats](https://github-readme-stats.vercel.app/api?username=emersonjrdev&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=00D9FF&icon_color=00D9FF&text_color=FFFFFF&include_all_commits=true)
-
-![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=emersonjrdev&layout=compact&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=00D9FF&text_color=FFFFFF&hide=html,css)
+![GitHub Stats](https://github-readme-stats.vercel.app/api?username=emersonjrdev&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=FFB6C1&icon_color=FFD700&text_color=FFFFFF&include_all_commits=true)
 
 </div>
 
 ---
 
-## 🎮 Coding Activity
+## 🤝 Contribuindo
 
-<div align="center">
+Contribuições são bem-vindas! Sinta-se à vontade para:
 
-![Code Time](https://github.com/emersonjrdev/emersonjrdev/raw/main/gifs/coding.gif)
-
-</div>
-
----
-
-## 💡 Current Focus
-
-<div align="center">
-
-![Focus](https://github.com/emersonjrdev/emersonjrdev/raw/main/gifs/focus.gif)
-
-**Building scalable applications | Exploring AI/ML | Cloud Architecture**
-
-</div>
+1. Fazer um Fork do projeto
+2. Criar uma branch para sua feature (`git checkout -b feature/AmazingFeature`)
+3. Commit suas mudanças (`git commit -m 'Add some AmazingFeature'`)
+4. Push para a branch (`git push origin feature/AmazingFeature`)
+5. Abrir um Pull Request
 
 ---
 
-## 🤝 Let's Connect
+## 📝 Licença
+
+Este projeto está sob a licença MIT. Veja o arquivo `LICENSE` para mais detalhes.
+
+---
+
+## 👨‍💻 Desenvolvedor
 
 <div align="center">
+
+**Emerson Junior**
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/emerson-morales-junior-6469b8231/)
-[![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://instagram.com/emersxn_jr)
-[![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:contato.juniormorales@gmail.com)
 [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/emersonjrdev)
+[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:contato.juniormorales@gmail.com)
 
 </div>
 
@@ -188,10 +211,8 @@ const emerson = {
 
 <div align="center">
 
-![Footer](https://github.com/emersonjrdev/emersonjrdev/raw/main/gifs/footer.gif)
+**⭐ Se este projeto foi útil, considere dar uma estrela!**
 
-**⭐ From [emersonjrdev](https://github.com/emersonjrdev) with ❤️**
-
-![Visitor Count](https://visitor-badge.laobi.icu/badge?page_id=emersonjrdev.emersonjrdev&left_color=00D9FF&right_color=FF006E)
+![Visitor Count](https://visitor-badge.laobi.icu/badge?page_id=emersonjrdev.CrazyFoods&left_color=FFB6C1&right_color=FFD700)
 
 </div>
