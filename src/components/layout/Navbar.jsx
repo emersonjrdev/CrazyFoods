@@ -1,4 +1,5 @@
 import { useScrollY } from "../../hooks/useScrollY";
+import { BRAND_JPG, fallbackBrandImg } from "../../utils/brandImage";
 import { IconWhatsapp } from "../ui/Icons";
 
 const links = [
@@ -40,12 +41,13 @@ export default function Navbar({ menuOpen, setMenuOpen, waHref }) {
         >
           <span className="relative h-10 w-10 shrink-0 overflow-hidden rounded-full shadow-[0_2px_12px_rgba(0,0,0,0.35)] ring-2 ring-white/40 ring-offset-2 ring-offset-black/35 sm:h-11 sm:w-11 md:ring-offset-black/45">
             <img
-              src="/jusato.jpg"
+              src={BRAND_JPG}
               alt=""
               width={44}
               height={44}
               className="h-full w-full object-cover transition duration-300 group-hover:scale-105"
               decoding="async"
+              onError={fallbackBrandImg}
             />
           </span>
           <span className="flex min-w-0 flex-col text-left leading-tight">

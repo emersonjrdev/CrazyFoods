@@ -1,5 +1,6 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { fallbackRemoteFoodImg } from "../../utils/brandImage";
 import { IconStar, IconWhatsapp } from "../ui/Icons";
 
 export default function Featured({ items, waBase }) {
@@ -61,6 +62,7 @@ function FeaturedCard({ item, index, waBase, reduce }) {
           className="h-full w-full object-cover duration-500 group-hover:scale-[1.03]"
           width={800}
           height={500}
+          onError={fallbackRemoteFoodImg}
         />
         <div className="absolute inset-0 bg-gradient-to-tr from-ink/20 via-transparent to-transparent opacity-70" aria-hidden />
       </div>

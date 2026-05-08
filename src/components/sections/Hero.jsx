@@ -1,4 +1,6 @@
 import { motion, useReducedMotion } from "framer-motion";
+import { heroShowcasePhoto } from "../../data/siteContent";
+import { BRAND_JPG, fallbackBrandImg, fallbackRemoteFoodImg } from "../../utils/brandImage";
 import { IconWhatsapp } from "../ui/Icons";
 
 export default function Hero({ waHref }) {
@@ -18,19 +20,20 @@ export default function Hero({ waHref }) {
             loop
             playsInline
             preload="metadata"
-            poster="/jusato.jpg"
+            poster={BRAND_JPG}
             className="absolute inset-0 hidden h-full w-full object-cover saturate-[1.03] md:block md:opacity-[0.62]"
           >
             <source src="/video-background.mp4" type="video/mp4" />
           </video>
           <img
-            src="/jusato.jpg"
+            src={BRAND_JPG}
             alt=""
             fetchPriority="high"
             decoding="async"
             width={1280}
             height={720}
             className="absolute inset-0 h-full w-full object-cover opacity-[0.58] saturate-[1.03] md:hidden"
+            onError={fallbackBrandImg}
           />
         </div>
         {/* Leitura melhorada: menos “maré” escura sobre o texto; vídeo um pouco mais visível */}
@@ -148,13 +151,14 @@ export default function Hero({ waHref }) {
             />
             <div className="relative aspect-[4/3] w-full sm:aspect-[5/4] lg:aspect-[4/5] xl:aspect-square">
               <img
-                src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?auto=format&fit=crop&w=960&q=75"
+                src={heroShowcasePhoto}
                 alt="Sobremesa artesanal em apresentação minimalista"
                 loading="lazy"
                 decoding="async"
                 width={960}
                 height={960}
                 className="absolute inset-0 h-full w-full object-cover"
+                onError={fallbackRemoteFoodImg}
               />
               <div className="absolute inset-x-5 bottom-4 rounded-xl border border-white/25 bg-neutral-950/55 px-4 py-3 sm:inset-x-8 sm:bottom-6 sm:rounded-[1.1rem] sm:px-5 sm:py-3.5 md:backdrop-blur-md backdrop-blur-sm">
                 <p className="text-[13px] font-medium leading-snug text-white [text-shadow:0_1px_8px_rgba(0,0,0,0.65)]">

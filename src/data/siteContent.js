@@ -4,8 +4,9 @@ export const whatsappNumber = "5511987654321";
 export const whatsappMessage =
   "Olá! Gostaria de fazer um pedido na Jusato Confeitaria.";
 
-const u = (id, w = 800) =>
-  `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${w}&q=75`;
+/** Fotos públicas Unsplash — IDs revisados + parâmetros oficiais (ixlib) para melhor compatibilidade. */
+const u = (photoId, w = 800) =>
+  `https://images.unsplash.com/${photoId}?ixlib=rb-4.0.3&auto=format&fit=crop&w=${w}&q=82`;
 
 export const menuCategories = {
   doces: [
@@ -22,7 +23,7 @@ export const menuCategories = {
       preco: "R$ 12,00",
       desc: "Buttercream aveludado e decoração precisa — ideal para gifting e mesas contemporâneas.",
       stars: 5,
-      image: u("photo-1576610618956-43c6a31b4ff4", 720),
+      image: u("photo-1614707267537-b85aaf00c4b7", 720),
       imageAlt: "Cupcakes rosados elegantes sobre mármore",
     },
     {
@@ -72,8 +73,8 @@ export const menuCategories = {
       preco: "R$ 95,00",
       desc: "Veludo clássico com cream cheese aerado e acabamento contemporâneo.",
       stars: 5,
-      image: u("photo-1586985289688-ca3cf47d3d6c", 720),
-      imageAlt: "Bolo red velvet em estilo premium",
+      image: u("photo-1621303837174-89787a7d4729", 720),
+      imageAlt: "Bolo red velvet com ganache ou cheese frosting",
     },
     {
       nome: "Bolo Branco & Frutas",
@@ -89,7 +90,7 @@ export const menuCategories = {
       desc: "Conceito exclusivo para casamentos e marcas — briefing, prova e entrega white-glove.",
       stars: 5,
       image: u("photo-1535254973040-607b474cb50d", 720),
-      imageAlt: "Bolo de casamento em camadas elegantes",
+      imageAlt: "Bolo em camadas para celebração",
     },
   ],
   sobremesas: [
@@ -98,8 +99,8 @@ export const menuCategories = {
       preco: "R$ 18,00",
       desc: "Miolo fluído, crosta fina e sorvete de baunilha Tahitian — servido em timing perfeito.",
       stars: 5,
-      image: u("photo-1624353365286-3f8d62daad51", 720),
-      imageAlt: "Petit gâteau com calda escorrendo",
+      image: u("photo-1606313564200-e75d642a42d5", 720),
+      imageAlt: "Sobremesa de chocolate com calda fluída",
     },
     {
       nome: "Cheesecake Frutas",
@@ -122,8 +123,8 @@ export const menuCategories = {
       preco: "R$ 16,00",
       desc: "Estratos de biscuit fino e creme cacao com finalização granulada suave.",
       stars: 5,
-      image: u("photo-1606313564200-e75d642a42d5", 720),
-      imageAlt: "Sobremesa em camadas de chocolate",
+      image: u("photo-1549007994-cb92cae61054", 720),
+      imageAlt: "Camadas cremosas com chocolate belga",
     },
   ],
 };
@@ -135,7 +136,7 @@ export const featuredItems = [
     desc: "Curadoria de docinhos premium — storytelling em cada mordida.",
     stars: 5,
     image: u("photo-1499636136210-6fedd46d4f93", 800),
-    imageAlt: "Caixa elegante com doces finos",
+    imageAlt: "Mesa minimalista com xícara e doces",
   },
   {
     nome: "Kit Experiência Festa",
@@ -143,7 +144,7 @@ export const featuredItems = [
     desc: "Brigadeiros, mini tortas e finger desserts para até 20 convidados.",
     stars: 5,
     image: u("photo-1551024506-0bccd828d307", 800),
-    imageAlt: "Mesa de festa com doces variados",
+    imageAlt: "Cafeteria elegante com chocolate e latte art",
   },
   {
     nome: "Criação do Mês",
@@ -231,3 +232,11 @@ export const aboutBullets = [
     desc: "Lotes diários garantem frescor e brilho de acabamento.",
   },
 ];
+
+/** Mesma foto do lado do hero — URL centralizada para manter ixlib atualizado */
+export const heroShowcasePhoto =
+  `${u("photo-1464349095431-e9a21285b5f3", 960)}`;
+
+/** Para seção Sobre */
+export const aboutPhoto =
+  `${u("photo-1559056199-641a0ac8b55e", 900)}`;

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { fallbackRemoteFoodImg } from "../../utils/brandImage";
 import { IconStar, IconWhatsapp } from "../ui/Icons";
 
 const labels = { doces: "Doces", bolos: "Bolos", sobremesas: "Sobremesas" };
@@ -102,6 +103,7 @@ function ProductCard({ item, index, waBase }) {
           className="h-full w-full object-cover transition duration-500 ease-out group-hover:scale-[1.04]"
           width={720}
           height={495}
+          onError={fallbackRemoteFoodImg}
         />
         <div
           className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/35 via-transparent to-transparent opacity-80"

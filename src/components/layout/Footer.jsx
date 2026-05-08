@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
+import { BRAND_JPG, fallbackBrandImg } from "../../utils/brandImage";
 import { IconInstagram, IconFacebook, IconWhatsapp } from "../ui/Icons";
 
 export default function Footer({ waHref }) {
@@ -26,13 +27,14 @@ export default function Footer({ waHref }) {
           >
             <div className="flex items-center gap-3">
               <img
-                src="/jusato.jpg"
+                src={BRAND_JPG}
                 alt="Jusato"
                 width={48}
                 height={48}
                 loading="lazy"
                 decoding="async"
                 className="h-12 w-12 rounded-full object-cover ring-2 ring-neutral-900/10"
+                onError={fallbackBrandImg}
               />
               <div>
                 <p className="font-display text-xl tracking-tight">Jusato</p>

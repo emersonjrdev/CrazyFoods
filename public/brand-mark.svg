@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" role="img" aria-label="Jusato">
+  <defs>
+    <linearGradient id="g" x1="12" y1="8" x2="52" y2="58" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#e8bdc9"/>
+      <stop offset="0.55" stop-color="#faf8f6"/>
+      <stop offset="1" stop-color="#c69f5c"/>
+    </linearGradient>
+  </defs>
+  <circle cx="32" cy="32" r="30" stroke="url(#g)" stroke-width="2"/>
+  <path fill="url(#g)" opacity="0.9" d="M20 40c2-14 22-14 24 0H20z"/>
+  <ellipse cx="32" cy="26" fill="url(#g)" rx="14" ry="7"/>
+</svg>

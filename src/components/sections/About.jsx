@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { aboutPhoto } from "../../data/siteContent";
+import { fallbackRemoteFoodImg } from "../../utils/brandImage";
 import { SparkIcon } from "../ui/Icons";
 
 function easeOut(t) {
@@ -66,7 +68,7 @@ export default function About({ stats, bullets, waHref }) {
         >
           <div className="relative overflow-hidden rounded-[1.5rem] border border-neutral-900/[0.06] bg-white shadow-card">
             <img
-              src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?auto=format&fit=crop&w=900&q=75"
+              src={aboutPhoto}
               alt="Mão finalizando sobremesa em prato branco"
               loading="lazy"
               decoding="async"
@@ -74,6 +76,7 @@ export default function About({ stats, bullets, waHref }) {
               height={1120}
               className="aspect-[4/5] w-full object-cover sm:aspect-[5/6]"
               sizes="(max-width:1024px) 100vw, 42vw"
+              onError={fallbackRemoteFoodImg}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-ink/40 via-transparent to-transparent" aria-hidden />
             <div className="absolute bottom-5 left-5 right-5 rounded-2xl border border-white/25 bg-white/12 p-4 backdrop-blur-md">
