@@ -4,9 +4,11 @@ export const whatsappNumber = "5511987654321";
 export const whatsappMessage =
   "Olá! Gostaria de fazer um pedido na Jusato Confeitaria.";
 
-/** Fotos públicas Unsplash — IDs revisados + parâmetros oficiais (ixlib) para melhor compatibilidade. */
-const u = (photoId, w = 800) =>
-  `https://images.unsplash.com/${photoId}?ixlib=rb-4.0.3&auto=format&fit=crop&w=${w}&q=82`;
+/**
+ * Ilustrações locais em /public/catalog/ — sempre carregam no Vite/GitHub Pages
+ * sem depender de CDN externo. Troque pelo caminho de um JPG/WEBP próprio quando quiser.
+ */
+const catalog = (name) => `/catalog/${name}.svg`;
 
 export const menuCategories = {
   doces: [
@@ -15,7 +17,7 @@ export const menuCategories = {
       preco: "R$ 3,50",
       desc: "Cacao fino, manteiga clarificada e acabamento minimalista — textura sedosa, sabor profundo.",
       stars: 5,
-      image: u("photo-1549007994-cb92cae61054", 720),
+      image: catalog("dessert-01"),
       imageAlt: "Doces de chocolate artisanal em bandeja minimalista",
     },
     {
@@ -23,7 +25,7 @@ export const menuCategories = {
       preco: "R$ 12,00",
       desc: "Buttercream aveludado e decoração precisa — ideal para gifting e mesas contemporâneas.",
       stars: 5,
-      image: u("photo-1614707267537-b85aaf00c4b7", 720),
+      image: catalog("dessert-02"),
       imageAlt: "Cupcakes rosados elegantes sobre mármore",
     },
     {
@@ -31,7 +33,7 @@ export const menuCategories = {
       preco: "R$ 45,00",
       desc: "Camadas cremosas com frutos vermelhos selecionados e massa amanteigada em ponto francês.",
       stars: 5,
-      image: u("photo-1565958011703-44f9829ba187", 720),
+      image: catalog("dessert-03"),
       imageAlt: "Fatia de bolo decorada com morangos frescos",
     },
     {
@@ -39,7 +41,7 @@ export const menuCategories = {
       preco: "R$ 8,50",
       desc: "Intensidade de cacao 70% com ganache acetinada — contraste crocante por fora.",
       stars: 5,
-      image: u("photo-1607920591413-f4dcae7e10d4", 720),
+      image: catalog("dessert-04"),
       imageAlt: "Brownies empilhados com textura fudge",
     },
     {
@@ -47,7 +49,7 @@ export const menuCategories = {
       preco: "R$ 4,00",
       desc: "Rolagem manual em chocolate belga; recheios sazonais e acabamento envelhecido.",
       stars: 5,
-      image: u("photo-1481391319762-47fff57953ef", 720),
+      image: catalog("dessert-05"),
       imageAlt: "Trufas de chocolate em formato artesanal",
     },
     {
@@ -55,7 +57,7 @@ export const menuCategories = {
       preco: "R$ 15,00",
       desc: "Pé perfeito, recheios equilibrados — caixa curation de seis sabores harmonizados.",
       stars: 5,
-      image: u("photo-1569864358642-9a1683830b09", 720),
+      image: catalog("dessert-06"),
       imageAlt: "Macarons coloridos em estética clean",
     },
   ],
@@ -65,7 +67,7 @@ export const menuCategories = {
       preco: "R$ 85,00",
       desc: "Ganache espelhada, camadas de mousse e notas de cacau — serve até 10 pessoas.",
       stars: 5,
-      image: u("photo-1578985545062-69928b1d9587", 720),
+      image: catalog("dessert-07"),
       imageAlt: "Bolo de chocolate escuro com cobertura brilhante",
     },
     {
@@ -73,7 +75,7 @@ export const menuCategories = {
       preco: "R$ 95,00",
       desc: "Veludo clássico com cream cheese aerado e acabamento contemporâneo.",
       stars: 5,
-      image: u("photo-1621303837174-89787a7d4729", 720),
+      image: catalog("dessert-08"),
       imageAlt: "Bolo red velvet com ganache ou cheese frosting",
     },
     {
@@ -81,7 +83,7 @@ export const menuCategories = {
       preco: "R$ 75,00",
       desc: "Creme de baunilha Madagáscar e frutas da estação em composição editorial.",
       stars: 5,
-      image: u("photo-1464349095431-e9a21285b5f3", 720),
+      image: catalog("dessert-09"),
       imageAlt: "Bolo branco com frutas vermelhas",
     },
     {
@@ -89,7 +91,7 @@ export const menuCategories = {
       preco: "A partir de R$ 120",
       desc: "Conceito exclusivo para casamentos e marcas — briefing, prova e entrega white-glove.",
       stars: 5,
-      image: u("photo-1535254973040-607b474cb50d", 720),
+      image: catalog("dessert-10"),
       imageAlt: "Bolo em camadas para celebração",
     },
   ],
@@ -99,7 +101,7 @@ export const menuCategories = {
       preco: "R$ 18,00",
       desc: "Miolo fluído, crosta fina e sorvete de baunilha Tahitian — servido em timing perfeito.",
       stars: 5,
-      image: u("photo-1606313564200-e75d642a42d5", 720),
+      image: catalog("dessert-11"),
       imageAlt: "Sobremesa de chocolate com calda fluída",
     },
     {
@@ -107,7 +109,7 @@ export const menuCategories = {
       preco: "R$ 22,00",
       desc: "Base crocante, creme estável e calda de frutas vermelhas com acidez medida.",
       stars: 5,
-      image: u("photo-1533134242443-e4db4d859a73", 720),
+      image: catalog("dessert-03"),
       imageAlt: "Fatia de cheesecake com frutos vermelhos",
     },
     {
@@ -115,7 +117,7 @@ export const menuCategories = {
       preco: "R$ 20,00",
       desc: "Café espresso, mascarpone e cacau em camadas marcadas por tempo de geladeira.",
       stars: 5,
-      image: u("photo-1571877228500-bcaf9d6dba18", 720),
+      image: catalog("dessert-12"),
       imageAlt: "Tiramisu em tigela minimalista",
     },
     {
@@ -123,7 +125,7 @@ export const menuCategories = {
       preco: "R$ 16,00",
       desc: "Estratos de biscuit fino e creme cacao com finalização granulada suave.",
       stars: 5,
-      image: u("photo-1549007994-cb92cae61054", 720),
+      image: catalog("dessert-01"),
       imageAlt: "Camadas cremosas com chocolate belga",
     },
   ],
@@ -135,24 +137,24 @@ export const featuredItems = [
     preco: "R$ 45,00",
     desc: "Curadoria de docinhos premium — storytelling em cada mordida.",
     stars: 5,
-    image: u("photo-1499636136210-6fedd46d4f93", 800),
-    imageAlt: "Mesa minimalista com xícara e doces",
+    image: catalog("dessert-05"),
+    imageAlt: "Seleção refinada em apresentação premium",
   },
   {
     nome: "Kit Experiência Festa",
     preco: "R$ 120,00",
     desc: "Brigadeiros, mini tortas e finger desserts para até 20 convidados.",
     stars: 5,
-    image: u("photo-1551024506-0bccd828d307", 800),
-    imageAlt: "Cafeteria elegante com chocolate e latte art",
+    image: catalog("dessert-07"),
+    imageAlt: "Mesa de festa estética contemporânea",
   },
   {
     nome: "Criação do Mês",
     preco: "R$ 65,00",
     desc: "Sabor sazonal em edição limitada — lançamento mensal da nossa laboratório.",
     stars: 5,
-    image: u("photo-1519915028121-7d3463d20f13", 800),
-    imageAlt: "Sobremesa artesanal em prato branco",
+    image: catalog("dessert-09"),
+    imageAlt: "Criação sazonal em louça branca",
   },
 ];
 
@@ -233,10 +235,5 @@ export const aboutBullets = [
   },
 ];
 
-/** Mesma foto do lado do hero — URL centralizada para manter ixlib atualizado */
-export const heroShowcasePhoto =
-  `${u("photo-1464349095431-e9a21285b5f3", 960)}`;
-
-/** Para seção Sobre */
-export const aboutPhoto =
-  `${u("photo-1559056199-641a0ac8b55e", 900)}`;
+export const heroShowcasePhoto = "/catalog/dessert-hero.svg";
+export const aboutPhoto = "/catalog/dessert-about.svg";
