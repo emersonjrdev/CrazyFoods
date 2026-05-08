@@ -1,23 +1,43 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,400..700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Melhorias de responsividade mobile */
-* {
-  -webkit-tap-highlight-color: transparent;
+@layer base {
+  :root {
+    color-scheme: light;
+    --mx: 50%;
+    --my: 50%;
+  }
+
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html {
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    @apply font-sans text-ink antialiased bg-cream-100;
+    overflow-x: hidden;
+    width: 100%;
+  }
+
+  ::selection {
+    background: rgba(232, 189, 201, 0.35);
+    color: #0c0c0d;
+  }
 }
 
-html {
-  overflow-x: hidden;
-  scroll-behavior: smooth;
-}
-
-body {
-  overflow-x: hidden;
-  width: 100%;
-}
-
-/* Scrollbar personalizada */
 .scrollbar-hide {
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -27,15 +47,34 @@ body {
   display: none;
 }
 
-/* Melhorias para touch em mobile */
-@media (max-width: 768px) {
-  button, a {
-    min-height: 44px;
-    min-width: 44px;
+.cursor-halo::before {
+  content: "";
+  position: fixed;
+  left: var(--mx);
+  top: var(--my);
+  width: min(560px, 90vw);
+  height: min(560px, 90vw);
+  translate: -50% -50%;
+  pointer-events: none;
+  z-index: 0;
+  background: radial-gradient(
+    circle,
+    rgba(198, 159, 92, 0.07) 0%,
+    rgba(232, 189, 201, 0.05) 35%,
+    transparent 62%
+  );
+  opacity: 0.85;
+}
+
+@media (pointer: coarse), (prefers-reduced-motion: reduce) {
+  .cursor-halo::before {
+    display: none;
   }
-  
-  /* Prevenir zoom em inputs no iOS */
-  input, textarea, select {
-    font-size: 16px;
+}
+
+@layer utilities {
+  .gpu {
+    transform: translateZ(0);
+    backface-visibility: hidden;
   }
 }
